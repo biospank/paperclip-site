@@ -1,4 +1,6 @@
 Paperclip::Application.routes.draw do
+  resources :contacts, only: [:new, :create]
+
   # if routing the root path, update for your controller
   root to: 'home#index'
 

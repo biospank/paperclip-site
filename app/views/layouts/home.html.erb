@@ -9,11 +9,14 @@
     <%= csrf_meta_tags %>
   </head>
   <body class="pull_top">
-    <header>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <%= render 'layouts/navigation' %>
-    </header>
+    </div>
     <main role="main">
        <%= yield %>
     </main>
+    <footer id="footer" style="margin-top:0;">
+      <%= render 'layouts/footer' %>
+    </footer>
   </body>
 </html>

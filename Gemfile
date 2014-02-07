@@ -36,17 +36,18 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# gem 'activerecord-tableless'
+gem 'activerecord-tableless'
 # gem 'compass-rails', '~> 2.0.alpha.0' 
 gem 'figaro'
+gem 'devise'
 # gem 'gibbon'
 # gem 'google_drive'
-gem 'high_voltage'
-# gem 'simple_form'
+# gem 'high_voltage'
+gem 'simple_form'
 
 group :development do
   gem 'better_errors' 
-  # gem 'quiet_assets' 
+  gem 'quiet_assets' 
   gem 'rails_layout'
 end
 
