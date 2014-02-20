@@ -1,9 +1,9 @@
 Paperclip::Application.routes.draw do
-  resources :contacts, only: [:new, :create]
 
   # if routing the root path, update for your controller
   root to: 'home#index'
 
+  resources :contacts, only: [:new, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

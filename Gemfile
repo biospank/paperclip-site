@@ -43,11 +43,12 @@ gem 'devise'
 gem 'font-awesome-sass'
 # gem 'gibbon'
 # gem 'google_drive'
-# gem 'high_voltage'
+gem 'high_voltage'
 #gem 'simple_form'
 
 group :development do
   gem 'better_errors' 
+#  gem 'binding_of_caller'
   gem 'quiet_assets' 
   gem 'rails_layout'
 end

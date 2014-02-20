@@ -4,14 +4,14 @@
   <div class="row form">
       <div class="col-sm-6 row-col">
           <div class="box">
-            <%= f.text_field :name, class: "name form-control", placeholder: "Nome" %>
-            <%= f.text_field :email, class: "mail form-control", placeholder: "Indirizzo mail" %>
+            <%= f.text_field :name, class: "name form-control", placeholder: "Nome", required: true %>
+            <%= f.text_field :email, class: "mail form-control", placeholder: "Indirizzo mail", required: true %>
             <%= f.text_field :phone, class: "phone form-control", placeholder: "Telefono" %>
           </div>
       </div>
       <div class="col-sm-6">
           <div class="box">
-            <%= f.text_area :message, class: "form-control", placeholder: "Scrivi il tuo messaggio..." %>
+            <%= f.text_area :message, class: "form-control", placeholder: "Scrivi il tuo messaggio...", required: true %>
           </div>
       </div>
   </div>
