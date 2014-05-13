@@ -5,5 +5,5 @@ class HomeController < ApplicationController
   def index
     # last_modified = Time.now.utc()
   end
-  
+
 end

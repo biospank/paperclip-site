@@ -84,7 +84,7 @@
                 background-size: cover !important;
 
         &.previous {
-            z-index: 1; 
+            z-index: 1;
         }
 
         &.active {
@@ -116,7 +116,7 @@
                 }
             }
         }
-        
+
         /* Slide 2 */
         &#ideas {
             .info {
@@ -158,11 +158,11 @@
                     display: inline-block;
                     -webkit-transition: opacity .1s linear;
                     -moz-transition: opacity .1s linear;
-                    transition: opacity .1s linear; 
+                    transition: opacity .1s linear;
 
                     &:hover {
 
-                    } 
+                    }
                 }
             }
         }
@@ -202,7 +202,7 @@
 
                 &:hover {
                     opacity: .8;
-                } 
+                }
             }
         }
 
@@ -219,7 +219,7 @@
         position: absolute;
         top: 250px;
         left: 0;
-        background: url(<%= image_path 'img/leftright-arrows.png' %>) no-repeat;
+        background: url(image-path('img/leftright-arrows.png')) no-repeat;
         opacity: .5;
         -webkit-transition: opacity .1s linear;
         -moz-transition: opacity .1s linear;
@@ -240,7 +240,7 @@
         top: 250px;
         left: auto;
         right: 0;
-        background: url(<%= image_path 'img/leftright-arrows.png' %>) no-repeat;
+        background: url(image-path('img/leftright-arrows.png')) no-repeat;
         background-position: -31px 0;
         opacity: .5;
         -webkit-transition: opacity .1s linear;
@@ -267,7 +267,7 @@
     .image {
 
         img {
-           box-shadow: 3px 3px 5px 0px #B7B6B7; 
+           box-shadow: 3px 3px 5px 0px #B7B6B7;
         }
     }
 
@@ -281,7 +281,7 @@
         p {
            color: #333333;
             line-height: 21px;
-            font-size: 13px; 
+            font-size: 13px;
         }
     }
 
@@ -303,19 +303,19 @@
                 p {
                     margin: 0;
                     font-size: 14px;
-                    line-height: 23px; 
+                    line-height: 23px;
                 }
             }
 
             .img_box {
                 position: relative;
-                border-radius: 5px; 
+                border-radius: 5px;
 
                 img {
                     border-radius: 5px;
                     max-width: 98%;
                     margin: 0 auto;
-                    display: block;  
+                    display: block;
                 }
 
                 span {
@@ -338,14 +338,14 @@
                                 font-size: 32px;
                                 margin-top: 13px;
                             }
-                        }  
+                        }
                     }
                 }
 
                 &:hover {
                     span {
                         &.circle {
-                           display: block; 
+                           display: block;
                         }
                     }
 
@@ -470,7 +470,7 @@
                 color: #838385;
                 margin-bottom: 5px;
                 font-size: 14px;
-            } 
+            }
         }
 
         a {
@@ -616,20 +616,20 @@
         .img {
             height: 76px;
             width: 138px;
-            cursor: pointer;    
+            cursor: pointer;
             -webkit-transition: box-shadow .1s linear;
             -moz-transition: box-shadow .1s linear;
             transition: box-shadow .1s linear;
 
             &:hover {
-                cursor: pointer;    
+                cursor: pointer;
                 /*box-shadow: 0px 0px 2px 0px rgb(155, 155, 155);*/
                 border-radius: 8px;
             }
         }
 
         .client1 {
-            background: url('<%= image_path 'img/client1.png' %>') 0 -75px;
+            background: url(image-path('img/client1.png')) 0 -75px;
 
             &:hover {
                 background-position: 1px 0px;
@@ -637,7 +637,7 @@
         }
 
         .client2 {
-            background: url('<%= image_path 'img/client2.png' %>') 0 -75px;
+            background: url(image-path('img/client2.png')) 0 -75px;
 
             &:hover {
                 background-position: -1px 0px;
@@ -645,7 +645,7 @@
         }
 
         .client3 {
-            background: url('<%= image_path 'img/client3.png' %>') 0 -76px;
+            background: url(image-path('img/client3.png')) 0 -76px;
 
             &:hover {
                 background-position: 0px 0px;
@@ -670,10 +670,10 @@
                 }
             }
         }
-    } 
+    }
     #clients {
         .row {
-            text-align: center; 
+            text-align: center;
         }
 
         .client {
@@ -723,7 +723,7 @@
                 }
             }
         }
-    } 
+    }
 }
 
 @media (min-width: 768px) {
@@ -831,7 +831,7 @@
 
         .start {
             p {
-               margin-bottom: 20px; 
+               margin-bottom: 20px;
             }
 
             a {
@@ -840,7 +840,7 @@
                 margin: 0 auto;
             }
         }
-    }    
+    }
 }
 
 @media (max-width: 480px) {
@@ -861,7 +861,7 @@
 
                 .text {
                     h6 {
-                       text-align: left; 
+                       text-align: left;
                     }
                 }
 
@@ -878,4 +878,3 @@
         }
     }
 }
-

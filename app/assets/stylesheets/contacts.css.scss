@@ -51,7 +51,7 @@
             background: #252528;
           }
         }
-      } 
+      }
     }
   }
 
@@ -64,7 +64,7 @@
 
     .box {
       margin: 0;
-      
+
       input {
         &[type="text"] {
           padding-left: 39px;
@@ -75,15 +75,15 @@
         }
 
         &.name {
-          background: url('<%= image_path 'img/formname.png' %>') #fff no-repeat 5px;
+          background: url(image-path('img/formname.png')) #fff no-repeat 5px;
         }
 
         &.mail {
-          background: url('<%= image_path 'img/formmail.png' %>') #fff no-repeat 5px;
+          background: url(image-path('img/formmail.png')) #fff no-repeat 5px;
         }
 
         &.phone {
-          background: url('<%= image_path 'img/formphone.png' %>') #fff no-repeat 5px;
+          background: url(image-path('img/formphone.png')) #fff no-repeat 5px;
         }
 
       }
@@ -234,7 +234,7 @@
 /* Responsive
 -------------------------------------------------- */
 
-@media (max-width: 767px) { 
+@media (max-width: 767px) {
   #contact {
     .contact {
       .submit {
@@ -243,8 +243,8 @@
         }
 
         .right {
-          float: none; 
-          
+          float: none;
+
           input[type="submit"] {
             margin: 0 auto;
             float: none;

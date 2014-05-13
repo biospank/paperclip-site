@@ -1,0 +1,17 @@
+= form_for(@contact) do |f|
+  .row.form
+    .col-sm-6.row-col
+      .box
+        = f.text_field :name, class: "name form-control", placeholder: "Nome", required: true
+        = f.text_field :email, class: "mail form-control", placeholder: "Indirizzo mail", required: true
+        = f.text_field :phone, class: "phone form-control", placeholder: "Telefono"
+    .col-sm-6
+      .box
+        = f.text_area :message, class: "form-control", placeholder: "Scrivi il tuo messaggio...", required: true
+  .row.submit
+    .col-md-5.box
+      label.checkbox
+        input type="checkbox"
+          | Iscriviti alla newsletter
+    .col-md-3.right
+      = f.submit "Invia messaggio!"

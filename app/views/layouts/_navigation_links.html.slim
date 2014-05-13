@@ -1,0 +1,23 @@
+li.active= link_to 'HOME', root_path, data: {no_turbolink: true}
+li
+  a href="about-us.html"  ABOUT US
+li.dropdown
+  a.dropdown-toggle data-toggle="dropdown" href="#"
+    | MODULI
+    b.caret
+  ul.dropdown-menu
+    li= link_to 'Fatturazione', page_path('fatturazione')
+    li= link_to 'Scadenzario', page_path('scadenzario')
+    li= link_to 'Prima Nota', page_path('prima_nota')
+    li= link_to 'Magazzino', page_path('magazzino')
+    li= link_to 'Bilancio', page_path('bilancio')
+    li= link_to 'Liquidazione IVA', page_path('liquidazione_iva')
+li
+  a href="pricing.html"  PRICING
+li= link_to 'CONTATTI', new_contact_path()
+li
+  a href="blog.html"  BLOG
+li
+  a href="sign-up.html"  Sign up
+li
+  a href="sign-in.html"  Sign in

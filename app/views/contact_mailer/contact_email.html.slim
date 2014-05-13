@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+  body
+    h1 Contatto Paperclip
+    p
+      | Hai ricevuto un messaggio da:
+    p
+      = @contact.name
+      br/
+      = @contact.email
+      br/
+    p
+      | Il mittente ha scritto:
+    p
+      | "#{@contact.message}"
