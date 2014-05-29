@@ -16,7 +16,11 @@ li= link_to 'ACQUISTA', page_path('pricing')
 li= link_to 'CONTATTI', new_contact_path()
 li
   a href="blog.html"  BLOG
-li
-  a href="sign-up.html"  Sign up
-li
-  a href="sign-in.html"  Sign in
+- if user_signed_in?
+  li
+    = link_to 'esci', destroy_user_session_path(), data: {no_turbolink: true}, method: 'DELETE'
+- else
+  li
+    = link_to 'registrati', new_user_registration_path(), data: {no_turbolink: true}
+  li
+    = link_to 'accedi', new_user_session_path(), data: {no_turbolink: true}

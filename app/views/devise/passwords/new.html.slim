@@ -1,9 +1,17 @@
-.authform
-  = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :role => 'form'}) do |f|
-    h3 Forgot your password?
-    p We'll send password reset instructions.
-    = devise_error_messages!
-    .form-group
-      = f.label :email
-      = f.email_field :email, :autofocus => true, class: 'form-control'
-    = f.submit 'Reset Password', :class => 'button right'
+#reset_pwd.reset_page
+  .container
+    .row
+      .col-md-12.box_wrapper
+        .col-md-12
+          .box
+            .head
+              h4 Inserisci il tuo indirizzo email, riceverai istruzioni su come resettare la tua password.
+              .line
+            .form
+              = devise_error_messages!
+              = form_for(resource, :as => resource_name, :url => user_password_path(), :html => { :method => :post, :role => 'form'}) do |f|
+                = f.email_field :email, placeholder: "Indirizzo Email", :autofocus => true, class: 'form-control'
+                = f.submit 'Resetta Password'
+        p.already
+          | Conosci la tua password?
+          = link_to 'Accedi', new_user_session_path()

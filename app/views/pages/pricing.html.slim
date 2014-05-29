@@ -14,10 +14,10 @@
               h3 Single
               .price
                 span.dollar €
-                span.qty 169
+                span.qty 19
+                span.month
+                  |/mese
               .features
-                p
-                  | uso illimitato
                 p
                   | aggiornamenti
                 p
@@ -31,18 +31,18 @@
                 h3 Net
                 .price
                   span.dollar €
-                  span.qty 189
+                  span.qty 39
+                  span.month
+                    |/mese
                 .features
                   p
-                    | uso illimitato
-                  p
-                    strong 10
+                    strong> 5
                     | postazioni
                   p
                     | aggiornamenti
                   p
                     | supporto email
-                a.order href="#"  ACQUISTA ORA
+                = link_to 'CONTATTACI', new_contact_path(), class: 'order'
         /! Plan Box
         .col-sm-3
           .plan
@@ -50,30 +50,26 @@
               h3 Cloud
               .price
                 span.dollar €
-                span.qty 199
-              .price
-                span.qty +35
+                span.qty 69
                 span.month
-                  |/month
+                  |/mese
               .features
                 p
-                  strong 10
-                  | Shared Projects
+                  strong> 10
+                  | postazioni
                 p
-                  strong 4
-                  | Team Members
+                  | aggiornamenti
                 p
-                  strong 10
-                  | Storage
-              a.order href="#"  ACQUISTA ORA
+                  | supporto email
+              = link_to 'CONTATTACI', new_contact_path(), class: 'order'
         /! Plan Box
         .col-sm-3.black
           .plan
             .wrapper
               h3 Hai bisogno di altro?
               h6 Parliamone.
-              p Se le vostre esigenze sono diverse dai piani offerti...
-              a.order href="#"  CONTATTACI
+              p Se le tue esigenze sono diverse dai piani offerti...
+              = link_to 'CONTATTACI', new_contact_path(), class: 'order'
     .start
       p Inizia la tua prova gratuita
       a href="#" Inizia ora!
@@ -85,18 +81,42 @@
     .row
       .col-sm-6.block
         .box
-          p.title How long are your contracts?
+          p.title Che differenza c'è tra 'Single', 'Net' e 'Cloud'?
           p.answ
-            | There are many variations of passages of Lorem Ipsum available, but the randomised words which don’t look even slightly believable. If you are anything embarrassing hidden in the middle of text.
+            blockquote
+              | La versione
+              strong<>Single
+              | è utilizzabile su una singola postazione. Ha una base dati embedded che non può essere condivisa.
+            blockquote
+              | La versione
+              strong<>Net
+              | è utilizzabile su più postazioni contemporaneamente all'interno della rete aziendale ed ha una base dati condivisa.
+            blockquote
+              | La versione
+              strong<>Cloud
+              | è utilizzabile su più postazioni contemporaneamente dislocate in regioni geograficamente separate. Ha una base dati condivisa ed è necessaria una connessione ad internet.
+            blockquote
+              | Tutte le versioni hanno abilitate le stesse funzionalità.
         .box
-          p.title How do i sign up?
+          p.title Posso passare da una versione all'altra?
           p.answ
-            | There are many variations of passages of Lorem Ipsum available, but the randomised words which don’t look even slightly believable. If you are anything embarrassing hidden in the middle of text.
+            blockquote
+              | Si. Puoi passare in qualsiasi momento alla versione più adatta alle tue esigenze.
       .col-sm-6.block
         .box
-          p.title What is meant by unlimited?
+          p.title Quali sono i costi di avviamento?
           p.answ
-            | There are many variations of passages of Lorem Ipsum available, but the randomised words which don’t look even slightly believable. If you are anything embarrassing hidden in the middle of text.
+            blockquote
+              | Per la versione
+              strong<>Single
+              | nessuno.
+            blockquote
+              | Per la versione
+              strong<>Net e Cloud
+              | dipende dalla rete aziendale in essere e dal numero di postazioni.
+            blockquote
+              | Per maggiori informazioni 
+              = link_to("contattaci", new_contact_path(), class: 'btn btn-primary btn-xs')
         .box
           p.title Is there a discount for yearly service?
           p.answ

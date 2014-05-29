@@ -27,28 +27,28 @@
 
 		.head {
 			background-color: #faf9f9;
-		    border-radius: 4px 4px 1px 0;
-		    display: inline-block;
-		    margin-bottom: 37px;
-		    padding: 25px 0 25px;
-		    text-align: center;
-		    width: 100%;
-		    box-shadow: inset 2px 2px 3px 0px white;
+			border-radius: 4px 4px 1px 0;
+			display: inline-block;
+			margin-bottom: 37px;
+			padding: 25px 0 25px;
+			text-align: center;
+			width: 100%;
+			box-shadow: inset 2px 2px 3px 0px white;
 
-		    h4 {
-		    	color: #333;
+			h4 {
+				color: #333;
 				font-size: 16px;
 				margin: 0px 20px;
 				text-shadow: 1px 1px 1px white;
-		    }
+			}
 
-		    .line {
-		    	height: 3px;
+			.line {
+				height: 3px;
 				border-top: 1px solid #ebebeb;
 				border-bottom: 1px solid #ebebeb;
 				position: relative;
 				top: 30px;
-		    }
+			}
 		}
 
 		.form {
@@ -56,22 +56,24 @@
 			text-align: center;
 			width: 83%;
 			border-color: #CCCCCC;
-		    border-radius: 7px 7px 7px 7px;
-		    color: #394350;
-		    font-size: 15px;
-		    font-weight: bold;
-		    padding: 5px 0;
+			border-radius: 7px 7px 7px 7px;
+			color: #394350;
+			font-size: 15px;
+			font-weight: bold;
+			padding: 5px 0;
 
-			input[type="text"] {
-				border-color: #DBDBDB #EAEAEA #EAEAEA #DBDBDB;
-			    border-left: 1px solid #DBDBDB;
-			    border-style: solid;
-			    border-width: 1px;
-			    font-size: 16px;
-			    height: 40px;
-			    margin-bottom: 35px;
-			    width: 100%;
-			    padding-left: 8px;   
+			input {
+				&[type="text"], &[type="email"], &[type="password"] {
+					border-color: #DBDBDB #EAEAEA #EAEAEA #DBDBDB;
+					border-left: 1px solid #DBDBDB;
+					border-style: solid;
+					border-width: 1px;
+					font-size: 16px;
+					height: 40px;
+					margin-bottom: 35px;
+					width: 100%;
+					padding-left: 8px;
+				}
 			}
 
 			input[type="submit"] {
@@ -108,29 +110,21 @@
 @media (min-width: 768px) and (max-width: 991px) {
 	.reset_page {
 		.box{
-	  		width: 54%;
+			width: 54%;
 		}
 	}
 }
 @media (max-width: 991px) {
 	.reset_page {
 		.box{
-		  	width: 70%;
+			width: 70%;
 		}
 	}
 }
 @media (max-width: 480px) {
 	.reset_page {
 		.box{
-			width: 100%;  
+			width: 100%;
 		}
 	}
 }
-
-
-
-
-
-
-
-

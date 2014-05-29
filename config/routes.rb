@@ -1,5 +1,6 @@
 Paperclip::Application.routes.draw do
 
+  devise_for :users
   # if routing the root path, update for your controller
   root to: 'home#index'
 

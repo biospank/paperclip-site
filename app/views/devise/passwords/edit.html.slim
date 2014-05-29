@@ -1,0 +1,19 @@
+#reset_pwd.reset_page
+  .container
+    .row
+      .col-md-12.box_wrapper
+        .col-md-12
+          .box
+            .head
+              h3 Cambia la tua password.
+              .line
+            .form
+              = devise_error_messages!
+              = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
+                = f.hidden_field :reset_password_token
+                = f.password_field :password, placeholder: "Nuova Password", autofocus: true, autocomplete: 'off', class: 'form-control'
+                = f.password_field :password_confirmation, placeholder: "Conferma nuova Password", autocomplete: 'off', class: 'form-control'
+                = f.submit 'Cambia Password'
+        p.already
+          | Conosci la tua password?
+          = link_to 'Accedi', new_user_session_path()

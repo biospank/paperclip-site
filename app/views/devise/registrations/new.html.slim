@@ -1,14 +1,39 @@
-.authform
-  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f|
-    h3 Sign up
+/! Sign In Option 2
+#sign_up2
+  .container
+    .section_header
+      h3
+        | Registrati
+        span (option 2)
     = devise_error_messages!
-    .form-group
-      = f.label :email
-      = f.email_field :email, :autofocus => true, class: 'form-control'
-    .form-group
-      = f.label :password
-      = f.password_field :password, class: 'form-control'
-    .form-group
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation, class: 'form-control'
-    = f.submit 'Sign up', :class => 'button right'
+    .row.login
+      .col-sm-5.left_box
+        h4 Crea il tuo account
+        .perk_box
+          .perk
+            span.icos.ico1
+            p
+              strong Lorem alteration
+              | in some form  injected humour these randomised words .
+          .perk
+            span.icos.ico2
+            p
+              strong There are many variations
+              | of passages of Lorem alteration in some form  injected humour these randomised words.
+          .perk
+            span.icos.ico3
+            p
+              strong Alteration in some form
+              | injected humour these randomised words.
+      .col-sm-6.signin_box
+        .box
+          .box_cont
+            .form
+              = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f|
+                = f.email_field :email, placeholder: "Email", :autofocus => true, class: 'form-control'
+                = f.password_field :password, placeholder: "Password", class: 'form-control'
+                = f.password_field :password_confirmation, placeholder: "Conferma Password", class: 'form-control'
+                .forgot
+                  span Sei già registrato?
+                  = link_to 'Accedi', new_user_session_path()
+                = f.submit 'Registra'

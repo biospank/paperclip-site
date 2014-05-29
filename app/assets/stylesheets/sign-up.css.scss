@@ -1,6 +1,6 @@
 /* Sign Up Option 1 */
 #sign_up1 {
-	background: url("../../img/backgrounds/ocean.jpg")  no-repeat;
+	background: url(image-path('img/backgrounds/ocean.jpg'))  no-repeat;
 	display: block;
 	height: 540px;
 	margin-bottom: 90px;
@@ -121,7 +121,7 @@
 			color: black;
 			width: 27%;
 			margin-top: -4px;
-		}	
+		}
 
 		input[type="submit"] {
 			text-transform: uppercase;
@@ -392,12 +392,14 @@
 					margin: 0;
 				}
 
-				input[type="text"] {
-					border-radius: 3px;
-					font-size: 16px;
-					margin-bottom: 16px;
-					height: 37px;
-					color: black;
+				input {
+					&[type="text"], &[type="email"], &[type="password"] {
+						border-radius: 3px;
+						font-size: 16px;
+						margin-bottom: 16px;
+						height: 37px;
+						color: black;
+					}
 				}
 
 				input[type="submit"] {
@@ -468,8 +470,8 @@
 				width: 25%;
 			}
 		}
-	} 
-	
+	}
+
 	#sign_up2 {
 		.left_box {
 			.perk_box {
@@ -493,7 +495,7 @@
 			}
 		}
 	}
-}	
+}
 
 @media (max-width: 767px) {
 	#sign_up1{
@@ -558,7 +560,7 @@
 			}
 		}
 	}
-	
+
 	#sign_up2 {
 		.left_box {
 			overflow: hidden;
@@ -579,7 +581,7 @@
 				width: 100%;
 			}
 		}
-	} 
+	}
 }
 
 @media (max-width: 480px) {
