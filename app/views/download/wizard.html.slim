@@ -1,0 +1,57 @@
+.container
+	.section_header
+		h3 Download
+	p.lead
+		| 3 Passaggi per installare la versione pre-configurata per la tua azienda.
+		br
+		| Prima del download verifica le opzioni di configurazione selezionate.
+	.panel
+		#accordion.panel-group
+			.panel.panel-info
+				.panel-heading
+					h4.panel-title
+						a data-parent="#accordion" data-toggle="collapse" href="#collapseOne" 
+							| 1. Attività merceologica
+				#collapseOne.panel-collapse.collapse.in
+					.panel-heading
+						| Scegli il tipo di attività svolta dalla tua azienda
+					.panel-body
+						.btn-group data-toggle="buttons" 
+							label.btn.btn-primary.active
+								input#commercio type="radio"
+									| Commercio
+							label.btn.btn-primary
+								input#servizi type="radio"
+									| Servizi
+							label.btn.btn-primary
+								input#libero type="radio"
+									| Libero professionista
+			.panel.panel-info
+				.panel-heading
+					h4.panel-title
+						a data-parent="#accordion" data-toggle="collapse" href="#collapseTwo" 
+							| 2. Versione
+				#collapseTwo.panel-collapse.collapse.in
+					.panel-heading
+						| Scegli la versione che fa per te
+					.panel-body
+						.btn-group data-toggle="buttons" 
+							label#easy.btn.btn-primary.active data-container="body" data-toggle="popover" data-placement="top" data-content="Per utenti non esperti di contabilità Nasconde le sezioni di bilancio e liquidazioni iva."
+								input type="radio"
+									| Easy
+							label#prof.btn.btn-primary data-container="body" data-toggle="popover" data-placement="right" data-content="Per utenti esperti di contabilità: Abilita le sezioni di bilancio e liquidazioni iva."
+								input type="radio"
+									| Professional
+			.panel.panel-info
+				.panel-heading
+					h4.panel-title
+						a data-parent="#accordion" data-toggle="collapse" href="#collapseThree" 
+							| 3. Scarica & Installa
+				#collapseThree.panel-collapse.collapse.in
+					.panel-heading
+						| Premi sul bottone Scarica per iniziare il download.
+						br
+						' Per accedere a paperclip usa le credenziali 
+						strong Nome utente: admin Password: admin
+					.panel-body
+						button.btn.btn-success.pull-right Scarica

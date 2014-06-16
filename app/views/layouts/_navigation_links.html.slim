@@ -18,6 +18,8 @@ li
   a href="blog.html"  BLOG
 - if user_signed_in?
   li
+    = link_to 'Scarica', download_wizard_path()
+  li
     = link_to 'esci', destroy_user_session_path(), data: {no_turbolink: true}, method: 'DELETE'
 - else
   li
