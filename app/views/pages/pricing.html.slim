@@ -14,7 +14,7 @@
               h3 Single
               .price
                 span.dollar €
-                span.qty 19
+                span.qty 9
                 span.month
                   |/mese
               .features
@@ -72,7 +72,7 @@
               = link_to 'CONTATTACI', new_contact_path(), class: 'order'
     .start
       p Inizia la tua prova gratuita
-      a href="#" Inizia ora!
+      = link_to 'Inizia ora!', new_download_path()
 /! FAQs
 #faq
   .container
