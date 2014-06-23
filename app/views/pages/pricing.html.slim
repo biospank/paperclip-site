@@ -22,7 +22,7 @@
                   | aggiornamenti
                 p
                   | supporto email
-              a.order href="#"  ACQUISTA ORA
+              = link_to 'ACQUISTA ORA', new_subscription_path(), class: 'order'
         /! Plan Box
         .col-sm-3.ultra
           .plan
@@ -55,8 +55,7 @@
                   |/mese
               .features
                 p
-                  strong> 10
-                  | postazioni
+                  | postazioni illimitate
                 p
                   | aggiornamenti
                 p

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140618102454) do
+ActiveRecord::Schema.define(version: 20140619083144) do
 
   create_table "contacts", force: true do |t|
     t.string   "name"
@@ -27,6 +27,26 @@ ActiveRecord::Schema.define(version: 20140618102454) do
     t.integer  "user_id"
     t.string   "url"
     t.datetime "created_at"
+  end
+
+  create_table "plans", force: true do |t|
+    t.string   "name"
+    t.integer  "months"
+    t.decimal  "price"
+    t.decimal  "discount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subscriptions", force: true do |t|
+    t.integer  "plan_id",                        null: false
+    t.string   "email",                          null: false
+    t.string   "key",                            null: false
+    t.string   "stripe_customer_token"
+    t.string   "paypal_customer_token"
+    t.string   "paypal_recurring_profile_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

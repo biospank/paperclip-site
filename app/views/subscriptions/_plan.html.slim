@@ -1,0 +1,25 @@
+.form-group
+  label.col-sm-4.control-label Scadenza
+  .col-sm-8
+    p.form-control-static = @plan.expiry_date.to_s
+.form-group
+  label.col-sm-4.control-label Importo
+  .col-sm-8
+    p.form-control-static = number_to_currency @plan.price
+.form-group
+  label.col-sm-4.control-label Sconto
+  .col-sm-8
+    p.form-control-static 
+      - if @plan.discount
+        = number_to_currency((@plan.price * @plan.discount) / 100)
+        | (#{number_to_percentage @plan.discount})
+      - else
+        | -
+.form-group
+  label.col-sm-4.control-label Totale
+  .col-sm-8
+    p.form-control-static
+    - if @plan.discount
+      = number_to_currency(@plan.price - ((@plan.price * @plan.discount) / 100))
+    - else
+      = number_to_currency(@plan.price)

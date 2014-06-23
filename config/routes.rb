@@ -1,5 +1,9 @@
 Paperclip::Application.routes.draw do
 
+  resources :subscriptions, only: [:new, :create]
+  
+  post 'subscriptions/plan_detail' => 'subscriptions#plan_detail' 
+
   devise_for :users
   # if routing the root path, update for your controller
   root to: 'home#index'
