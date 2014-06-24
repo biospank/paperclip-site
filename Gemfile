@@ -46,6 +46,8 @@ gem 'font-awesome-sass', '~> 4.0.3'
 gem 'high_voltage'
 #gem 'simple_form'
 
+gem 'paypal-sdk-rest'
+
 group :development do
   gem 'better_errors'
   gem 'pry-rails'

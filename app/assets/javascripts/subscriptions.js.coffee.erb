@@ -1,0 +1,9 @@
+$(document).ready ->
+  $('#subscription_plan_id').change ->
+    $.ajax
+      url: '/subscriptions/plan_detail.js'
+      data: $('#new_subscription').serialize()
+      type: 'POST'
+  $('#paypal-btn').click ->
+    $(this).val('Elaborazione in corso...')
+    $(this).addClass('disabled')

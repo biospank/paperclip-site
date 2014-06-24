@@ -39,12 +39,16 @@ ActiveRecord::Schema.define(version: 20140619083144) do
   end
 
   create_table "subscriptions", force: true do |t|
-    t.integer  "plan_id",                        null: false
-    t.string   "email",                          null: false
-    t.string   "key",                            null: false
-    t.string   "stripe_customer_token"
+    t.integer  "user_id",               null: false
+    t.integer  "plan_id",               null: false
+    t.string   "email",                 null: false
+    t.string   "key"
+    t.string   "paypal_payment_token"
     t.string   "paypal_customer_token"
-    t.string   "paypal_recurring_profile_token"
+    t.decimal  "amount"
+    t.date     "expiry_date"
+    t.string   "state"
+    t.text     "error"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

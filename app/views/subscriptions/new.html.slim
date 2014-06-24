@@ -13,23 +13,19 @@
               = render 'layouts/messages'
               = form_for(@subscription, :url => subscriptions_path(), :method => :post, :html => { :class => 'form-horizontal', :role => 'form'}) do |f|
                 .form-group
-                  label.col-sm-4.control-label Email
+                  label.col-sm-4.control-label Utente
                   .col-sm-8
-                    p.form-control-static = @subscription.email
+                    p.form-control-static.text-success
+                      = f.hidden_field :email, :value => @subscription.email
+                      em
+                        = @subscription.email
+                hr
                 .form-group
                   label.col-sm-4.control-label for="subscription_plan_id" Piano
                   .col-sm-8
                     = f.select :plan_id, Plan.all.collect { |p| [ p.name, p.id ] }, {}, {:autofocus => true, :class => 'form-control'}
                 #plan_detail
-                  = render 'plan'    
+                  = render 'plan', plan: @subscription.plan
+                hr
                 .form-group
-                  .col-sm-offset-4.col-sm-8
-                    = f.submit 'Acquista', :class => "btn btn-default"
-
-coffee:
-  $(document).ready ->
-    $('#subscription_plan_id').change ->
-      $.ajax
-        url: '/subscriptions/plan_detail.js'
-        data: $('#new_subscription').serialize()
-        type: 'POST'
+                  = f.submit 'Acquista con PayPal', :id => 'paypal-btn', :class => "btn btn-default btn-block"

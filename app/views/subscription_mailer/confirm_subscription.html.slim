@@ -1,0 +1,51 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+  body
+    h1 Paperclip
+    h3 Riepilogo dati di acquisto
+    p
+      | Gentile Cliente, grazie per aver acquistato la licenza.
+      | Di seguito il riepilogo dei dati di acquisto:
+    dl.dl-horizontal
+      dt
+        | Utente:
+      dd
+        = @subscription.email
+      hr
+      dt
+        | Chiave di sblocco:
+      dd
+        = @subscription.key
+      hr
+      dt
+        | Piano sottoscritto:
+      dd
+        = @subscription.plan.name
+      hr
+      dt
+        | Scadenza:
+      dd
+        = l @subscription.expiry_date
+      hr
+      dt
+        | Importo:
+      dd
+        = number_to_currency @subscription.plan.price
+      hr
+      dt
+        | Sconto:
+      dd
+        - if @subscription.plan.discount
+          => number_to_currency(((@subscription.plan.price * @subscription.plan.discount) / 100))
+          | (#{number_to_percentage @subscription.plan.discount})
+        - else
+          | -
+      hr
+      dt
+        | Totale pagato:
+      dd
+        = number_to_currency @subscription.amount
+    p
+      | Buon Lavoro!!

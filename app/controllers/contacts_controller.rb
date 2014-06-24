@@ -12,7 +12,6 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-        # TODO save data
         ContactMailer.contact_email(@contact).deliver
         format.html { redirect_to new_contact_url, notice: 'Messaggio inviato!' }
       else

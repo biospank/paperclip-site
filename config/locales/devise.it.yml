@@ -12,6 +12,7 @@ it:
           attributes:
             email:
               blank: "Inserisci l'indirizzo email"
+              taken: "Indirizzo email già utilizzato"
             password:
               blank: "Inserisci la password"
               too_short: "La password deve essere almento di 6 caratteri"

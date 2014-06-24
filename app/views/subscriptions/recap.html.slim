@@ -1,0 +1,49 @@
+.container
+  .section_header
+    h3
+      | Acquisto effettuato correttamente
+  .panel.panel-success
+    .panel-heading
+      h3.panel-title Riepilogo dei dati di acquisto
+    .panel-body
+      dl.dl-horizontal
+        dt
+          | Utente:
+        dd
+          = @subscription.email
+        hr
+        dt
+          | Chiave di sblocco:
+        dd
+          = @subscription.key
+        hr
+        dt
+          | Piano sottoscritto:
+        dd
+          = @subscription.plan.name
+        hr
+        dt
+          | Scadenza:
+        dd
+          = l @subscription.expiry_date
+        hr
+        dt
+          | Importo:
+        dd
+          = number_to_currency @subscription.plan.price
+        hr
+        dt
+          | Sconto:
+        dd
+          - if @subscription.plan.discount
+            => number_to_currency(((@subscription.plan.price * @subscription.plan.discount) / 100))
+            | (#{number_to_percentage @subscription.plan.discount})
+          - else
+            | -
+        hr
+        dt
+          | Totale pagato:
+        dd
+          = number_to_currency @subscription.amount
+    .panel-footer
+      | Le informazioni riportate sopra, sono state inviate all'indirizzo indicato.

@@ -1,8 +1,15 @@
 Paperclip::Application.routes.draw do
 
-  resources :subscriptions, only: [:new, :create]
-  
-  post 'subscriptions/plan_detail' => 'subscriptions#plan_detail' 
+  resources :subscriptions, only: [:new, :create]do
+    get :confirm
+    get :cancel
+    get :recap
+  end
+
+  post 'subscriptions/plan_detail' => 'subscriptions#plan_detail'
+  # get 'subscription/:id/confirm' => 'subscriptions#confirm', :as => 'subscription_confirm'
+  # get 'subscription/:id/cancel' => 'subscriptions#cancel', :as => 'subscription_cancel'
+  # get 'subscription/:id/recap' => 'subscriptions#recap', :as => 'subscription_recap'
 
   devise_for :users
   # if routing the root path, update for your controller
