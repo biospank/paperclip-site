@@ -47,6 +47,7 @@ gem 'high_voltage'
 #gem 'simple_form'
 
 gem 'paypal-sdk-rest'
+gem 'pundit'
 
 group :development do
   gem 'better_errors'

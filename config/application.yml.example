@@ -1,0 +1,33 @@
+# Add application configuration variables here, as shown below.
+#
+
+test: &default
+
+  GMAIL_USERNAME: ciccio.pasticcio
+  GMAIL_PASSWORD: ciccio123
+  MAILCHIMP_API_KEY: Your_MailChimp_API_Key
+  MAILCHIMP_LIST_ID: Your_List_ID
+  DOMAIN_NAME: example.com
+  OWNER_EMAIL: ciccio.pasticcio@gmail.com
+
+  # Mode can be 'live' or 'sandbox'
+  PAYPAL_MODE: sandbox
+
+  # Credentials for PAYPAL REST APIs
+  PAYPAL_CLIENT_ID: take this from paypal developer sandbox
+  PAYPAL_CLIENT_SECRET: take this from paypal developer sandbox
+
+  PAYPAL_OWNER_EMAIL: ciccio.pasticcio-facilitator@gmail.com
+  PAYPAL_ACK_URL: "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate"
+
+development:
+  <<: *default
+
+production:
+  <<: *default
+  PAYPAL_MODE: live
+  # Credentials for PAYPAL REST APIs
+  PAYPAL_CLIENT_ID: take this from paypal developer sandbox
+  PAYPAL_CLIENT_SECRET: take this from paypal developer sandbox
+  PAYPAL_OWNER_EMAIL: ciccio.pasticcio-facilitator@gmail.com
+  PAYPAL_ACK_URL: "https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate"
