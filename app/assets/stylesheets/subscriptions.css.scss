@@ -10,9 +10,11 @@
  *
  *= require bootstrap/bootstrap
  *= require bootstrap-overrides
+ *= require reset
  *= require theme
  *= require sign-in
- *= require reset
+ *= require subscriptions_list
+ *= require thank_you
  *= require font-awesome
  *= require_self
  */

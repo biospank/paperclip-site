@@ -4,7 +4,7 @@ html
     meta content="width=device-width, initial-scale=1.0" name="viewport"
     title= content_for?(:title) ? yield(:title) : "Paperclip"
     meta content=(content_for?(:description) ? yield(:description) : "Paperclip") name="description"
-    = stylesheet_link_tag "devise", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag "subscriptions", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   body style=("padding-top: 0px;")
@@ -13,3 +13,5 @@ html
     main role="main"
       / = render 'layouts/messages'
       = yield
+    footer#footer style="margin-top:0;" class="#{content_for :footer}"
+      = render 'layouts/footer'

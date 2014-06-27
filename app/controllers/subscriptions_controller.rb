@@ -3,7 +3,15 @@ class SubscriptionsController < ApplicationController
 	protect_from_forgery with: :exception, except: [:confirm]
 
 	before_action :authenticate_user!, except: [:confirm]
-	before_action :find_subscription, only: [:execute, :cancel]
+	before_action :find_subscription, only: [:show, :execute, :cancel, :thank_you]
+
+	def index
+		@subscriptions = policy_scope(Subscription).includes(:plan).order(created_at: :desc).all
+	end
+
+	def show
+
+	end
 
   def new
     @subscription = Subscription.new(email: current_user.email, plan: Plan.first)
@@ -69,7 +77,7 @@ class SubscriptionsController < ApplicationController
 				# if payment.execute!(@subscription.paypal_customer_token)
 					@subscription.state = payment.state
 					@subscription.info = "Transazione approvata."
-					redirect_to subscription_recap_url(@subscription)
+					redirect_to subscription_thank_you_url(@subscription)
 				else
 					@subscription.state = payment.state
 					@subscription.info = "Transazione fallita."
@@ -134,7 +142,7 @@ class SubscriptionsController < ApplicationController
 	private
 
 	def find_subscription
-		@subscription = Subscription.find(params[:subscription_id])
+		@subscription = Subscription.find(params[:subscription_id] || params[:id])
 		authorize @subscription
 	end
 

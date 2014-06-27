@@ -1,4 +1,5 @@
 class Subscription < ActiveRecord::Base
+
   belongs_to :plan
   #belongs_to :customer
   validates_presence_of :plan_id

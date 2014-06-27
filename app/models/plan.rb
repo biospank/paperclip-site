@@ -5,8 +5,12 @@ class Plan < ActiveRecord::Base
     Date.today.months_since(self.months)
   end
 
+  def discount_amount
+    discount ? ((price * discount) / 100) : 0
+  end
+
   def discounted_price
-    discount ? (price - ((price * discount) / 100)).round(2) : price
+    discount ? (price - discount_amount).round(2) : price
   end
 
   def discounted_price_decimal

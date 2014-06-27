@@ -1,9 +1,10 @@
 Paperclip::Application.routes.draw do
 
-  resources :subscriptions, only: [:new, :create] do
+  resources :subscriptions, only: [:index, :show, :new, :create] do
     get :execute
     get :cancel
     get :recap
+    get :thank_you
   end
 
   post 'subscriptions/plan_detail' => 'subscriptions#plan_detail'

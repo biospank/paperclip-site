@@ -1,0 +1,56 @@
+#thank-you
+  .container
+    .section_header
+      h3
+        | Acquisto effettuato correttamente
+    .row.thank-you
+      h3
+        p
+          ' Grazie per aver sottoscritto l'abbonamento a Paperclip.
+      p
+        ' A breve riceverai una mail col riepilogo dei dati di acquisto
+        ' e il codice di sblocco relativo il periodo scelto.
+        ' Per avere informazioni sullo stato della tua sottoscrizione accedi all'area
+        em
+          => link_to 'sottoscrizioni', subscriptions_path()
+        ' del tuo profilo.
+    #recap.panel.panel-success
+      .panel-heading
+        h3.panel-title Riepilogo dei dati di acquisto
+      .panel-body
+        dl.dl-horizontal
+          dt
+            | Utente:
+          dd
+            = @subscription.email
+          hr
+          dt
+            | Piano sottoscritto:
+          dd
+            = @subscription.plan.name
+          hr
+          dt
+            | Scadenza:
+          dd
+            = l @subscription.expiry_date
+          hr
+          dt
+            | Importo:
+          dd
+            = number_to_currency @subscription.plan.price
+          hr
+          dt
+            | Sconto:
+          dd
+            - if @subscription.plan.discount
+              => number_to_currency(((@subscription.plan.price * @subscription.plan.discount) / 100))
+              | (#{number_to_percentage @subscription.plan.discount})
+            - else
+              | -
+          hr
+          dt
+            | Totale pagato:
+          dd
+            = number_to_currency @subscription.amount
+      .panel-footer
+        | Le informazioni riportate sopra, saranno inviate all'indirizzo indicato.

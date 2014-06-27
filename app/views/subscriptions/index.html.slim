@@ -1,0 +1,39 @@
+#subscriptions
+  .container
+    .section_header
+      h3
+        | Le tue sottoscrizioni
+    .row.subscription
+      p
+        | Di seguito trovi l'elenco in ordine cronologico delle sottoscrizioni da te acquistate per l'utilizzo di Paperclip.
+      - if @subscriptions.blank?
+        p
+          | Nessusa sottoscrizioni attualmente presente in archivio.
+      - else
+        table.table.table-bordered.table-hover
+          thead
+            tr
+              th Data
+              th Piano
+              th Importo
+              th Sconto
+              th Importo pagato
+              th Stato
+              th Data scadenza
+          tbody
+            - @subscriptions.each do |subscription|
+              tr class="#{SubscriptionsHelper::STATUS_CLASS[subscription.state.downcase.to_sym]}"
+                td= l subscription.created_at
+                td= subscription.plan.name
+                td= number_to_currency subscription.plan.price
+                td
+                  - if subscription.plan.discount
+                    => number_to_currency(subscription.plan.discount_amount)
+                    | (#{number_to_percentage subscription.plan.discount})
+                  - else
+                    | -
+                td= number_to_currency subscription.amount
+                td= subscription.info
+                td= l subscription.expiry_date
+= content_for :footer do
+  = 'fixed'

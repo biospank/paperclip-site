@@ -1,8 +1,26 @@
 class SubscriptionPolicy < ApplicationPolicy
   class Scope < Struct.new(:user, :scope)
+    # viene chiamato usando il metodo policy_scope
+    # applica i criteri di ricerca legati allo stato
+    # della sottoscrizione e al suo utente.
     def resolve
-      scope.where(:state => [Paypal::PAYMENT::STATUS::PENDING, Paypal::PAYMENT::STATUS::APPROVED])
+      scope.where("lower(state) in (?)", [
+        Paypal::PAYMENT::STATUS::PENDING.downcase,
+        Paypal::PAYMENT::STATUS::APPROVED.downcase,
+        Paypal::PAYMENT::STATUS::COMPLETED.downcase]
+      ).where(:user_id => user.id)
     end
+  end
+
+  # metodi di autorizzazzione.
+  # chiamati usando il metodo authorize sulle rispettive action
+
+  def show?
+    owner?
+  end
+
+  def thank_you?
+    owner?
   end
 
   def recap?

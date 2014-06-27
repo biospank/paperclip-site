@@ -1,0 +1,30 @@
+#subscriptions {
+  margin-top: 70px;
+
+  .section_header {
+    margin-bottom: 40px;
+  }
+
+  .subscription {
+    margin: 30px 0 30px 0;
+
+    p {
+      color: #939394;
+      font-size: 19px;
+      margin-bottom: 40px;
+      font-style: italic;
+      line-height: 24px;
+    }
+  }
+
+  .table {
+    margin-bottom: attr(data-margin);
+  }
+}
+
+#footer.fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}

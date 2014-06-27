@@ -12,7 +12,7 @@ class Paypal
     ACK_VERIFIED = "VERIFIED"
     ADDRESS_CONFIRMED = 'confirmed'
 
-    class Notification < OpenStruct;
+    class Notification < OpenStruct
 
       def send_ack_response(params)
         require "net/http"
@@ -67,9 +67,10 @@ class Paypal
             return false
           end
 
-          subscription.info = "Transazione completata."
           # TODO
           # - verifica su txn_id
+          
+          subscription.info = "Transazione completata."
 
         ensure
           PaymentNotification.create!(
