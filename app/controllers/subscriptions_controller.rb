@@ -3,7 +3,7 @@ class SubscriptionsController < ApplicationController
 	protect_from_forgery with: :exception, except: [:confirm]
 
 	before_action :authenticate_user!, except: [:confirm]
-	before_action :find_subscription, only: [:show, :execute, :cancel, :thank_you]
+	before_action :find_subscription, only: [:show, :execute, :cancel, :invoice_download, :thank_you]
 
 	def index
 		@subscriptions = policy_scope(Subscription).includes(:plan).order(created_at: :desc).all
@@ -14,8 +14,26 @@ class SubscriptionsController < ApplicationController
 	end
 
   def new
+		flash.clear
+		@customer = Customer.find_or_initialize_by(user: current_user)
     @subscription = Subscription.new(email: current_user.email, plan: Plan.first)
   end
+
+	def save_customer_data
+		@customer = Customer.find_or_initialize_by(user: current_user)
+		@customer.attributes = customer_params
+
+		respond_to do |format|
+			if @customer.valid?
+				@customer.save
+				format.js { render 'customer_data', locals: { ok: true } }
+			else
+				flash.now['error'] = @customer.error_message
+				format.js { render 'customer_data', locals: { ok: false } }
+			end
+		end
+
+	end
 
 	def create
     @subscription = Subscription.new(subscription_params)
@@ -104,6 +122,8 @@ class SubscriptionsController < ApplicationController
 		if ipn.send_ack_response(params)
 			if @subscription = Subscription.find_by_paypal_customer_token(ipn.payer_id)
 				if ipn.verify!(@subscription)
+					@subscription.create_invoice_for(Customer.find_by_user_id(current_user))
+					@subscription.save
 					SubscriptionMailer.confirm_subscription(@subscription).deliver
 				end
 			end
@@ -124,6 +144,10 @@ class SubscriptionsController < ApplicationController
 		redirect_to root_url
 	end
 
+	def invoice_download
+		send_file @subscription.invoice.generate
+	end
+
 	def recap
 		@subscription = policy_scope(Subscription).find(params[:subscription_id])
 		authorize @subscription
@@ -135,7 +159,7 @@ class SubscriptionsController < ApplicationController
     @plan = Plan.find(params[:subscription][:plan_id])
 
     respond_to do |format|
-      format.js { render :partial => 'plan_detail' }
+      format.js { render 'plan_detail' }
     end
   end
 
@@ -149,5 +173,9 @@ class SubscriptionsController < ApplicationController
   def subscription_params
     params.require(:subscription).permit(:plan_id, :email)
   end
+
+	def customer_params
+		params.require(:customer).permit(:name, :tax_code, :address)
+	end
 
 end

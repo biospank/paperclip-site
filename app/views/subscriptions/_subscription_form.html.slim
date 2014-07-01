@@ -1,0 +1,18 @@
+= render 'layouts/messages'
+= form_for(@subscription, :url => subscriptions_path(), :method => :post, :html => { :class => 'form-horizontal', :role => 'form'}) do |f|
+  .form-group
+    label.col-sm-3.control-label Email
+    .col-sm-9
+      p.form-control-static.text-success
+        = f.hidden_field :email, :value => @subscription.email
+        em
+          = @subscription.email
+  .form-group
+    label.col-sm-3.control-label for="subscription_plan_id" Piano
+    .col-sm-9
+      = f.select :plan_id, Plan.all.collect { |p| [ p.name, p.id ] }, {}, {:autofocus => true, :class => 'form-control'}
+  #plan_detail
+    = render 'plan', plan: @subscription.plan
+  .form-group
+    .col-sm-12
+      = f.submit 'Acquista con PayPal', :id => 'paypal-btn', :class => "btn btn-success pull-right"

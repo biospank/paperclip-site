@@ -16,16 +16,3 @@ class CreateSubscriptions < ActiveRecord::Migration
     end
   end
 end
-
-#class Customer < ActiveRecord::Migration
-#  def change
-#    create_table :customers do |t|
-#      t.string :email
-#
-#      t.timestamps
-#    end
-#
-#    execute "SELECT setval('customers_id_seq', 1000)" rescue nil # postgresql
-#    execute "UPDATE SQLITE_SEQUENCE SET seq = 1000 WHERE name = 'customers'" rescue nil # sqlite
-#  end
-#end

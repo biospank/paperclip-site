@@ -1,0 +1,19 @@
+html lang="en"
+  head
+    meta charset="utf-8"
+      /! CSS relative to tmp
+      = stylesheet_link_tag 'bootstrap/bootstrap'
+      = stylesheet_link_tag './css/custom'
+      = javascript_include_tag "jquery"
+  body
+    .container
+      .row
+        .col-md-12
+          table#doc.table.table-bordered.table-condensed
+            tbody
+              - invoice_lines.each do |line|
+                tr
+                  td style=("width: 80%;")
+                    = line.description
+                  td.right style=("width: 20%;")
+                    = number_to_currency(line.amount)

@@ -1,0 +1,17 @@
+= render 'layouts/messages'
+= form_for(@customer, :url => subscription_save_customer_data_path(), :remote => true, :method => :post, :html => { :class => 'form-horizontal', :role => 'form'}) do |f|
+  .form-group
+    = f.label :name, 'Nominativo', class: 'col-sm-3 control-label'
+    .col-sm-9
+      = f.text_field :name, class: 'form-control', placeholder: 'Nome o Ragione Sociale', autofocus: true
+  .form-group
+    = f.label :tax_code, 'Codice Fiscale/P. Iva', class: 'col-sm-3 control-label'
+    .col-sm-9
+      = f.text_field :tax_code, class: 'form-control', placeholder: 'Codice Fiscale o Partita Iva'
+  .form-group
+    = f.label :address, 'Indirizzo', class: 'col-sm-3 control-label'
+    .col-sm-9
+      = f.text_field :address, class: 'form-control', placeholder: 'Indirizzo di fatturazione'
+  .form-group
+    .col-sm-12
+      = f.submit 'Conferma i dati e continua...', :id => 'customer-data-btn', :class => "btn btn-default pull-right", data: {no_turbolink: true}

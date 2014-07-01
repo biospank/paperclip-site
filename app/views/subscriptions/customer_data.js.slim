@@ -1,0 +1,16 @@
+- if ok
+  | $('#customer-form').html("#{ escape_javascript render(:partial => 'customer_form', object: @customer) }");
+  | $('#customer-data-btn').removeClass('disabled');
+  | $('#accordion #collapseOne').collapse('hide');
+  | $('#accordion #collapseTwo').collapse('show');
+  - if @customer.valid?
+    | $('#paypal-btn').removeClass('disabled');
+  - else
+    | $('#paypal-btn').addClass('disabled');
+- else
+  | $('#customer-form').html("#{ escape_javascript render(:partial => 'customer_form', object: @customer) }");
+  | $('#paypal-btn').addClass('disabled');
+  - if @customer.valid?
+    | $('#paypal-btn').removeClass('disabled');
+  - else
+    | $('#paypal-btn').addClass('disabled');

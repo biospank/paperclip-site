@@ -3,10 +3,11 @@ Paperclip::Application.routes.draw do
   resources :subscriptions, only: [:index, :show, :new, :create] do
     get :execute
     get :cancel
-    get :recap
+    get :invoice_download
     get :thank_you
   end
 
+  post 'subscription/save_customer_data' => 'subscriptions#save_customer_data'
   post 'subscriptions/plan_detail' => 'subscriptions#plan_detail'
   post 'subscriptions/ipn' => 'subscriptions#confirm', :as => 'subscription_confirm'
   # get 'subscription/:id/confirm' => 'subscriptions#confirm', :as => 'subscription_confirm'

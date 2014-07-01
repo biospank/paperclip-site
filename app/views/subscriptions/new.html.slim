@@ -1,31 +1,30 @@
-/! Sign In Option 2
-#sign_in2
-  .container
-    .section_header
-      h3
-        | Acquista
-        span (option 2)
-    .row.login
-      .col-sm-6.col-sm-offset-3.signin_center_box
-        .box
-          .box_cont
-            .form
-              = render 'layouts/messages'
-              = form_for(@subscription, :url => subscriptions_path(), :method => :post, :html => { :class => 'form-horizontal', :role => 'form'}) do |f|
-                .form-group
-                  label.col-sm-4.control-label Utente
-                  .col-sm-8
-                    p.form-control-static.text-success
-                      = f.hidden_field :email, :value => @subscription.email
-                      em
-                        = @subscription.email
-                hr
-                .form-group
-                  label.col-sm-4.control-label for="subscription_plan_id" Piano
-                  .col-sm-8
-                    = f.select :plan_id, Plan.all.collect { |p| [ p.name, p.id ] }, {}, {:autofocus => true, :class => 'form-control'}
-                #plan_detail
-                  = render 'plan', plan: @subscription.plan
-                hr
-                .form-group
-                  = f.submit 'Acquista con PayPal', :id => 'paypal-btn', :class => "btn btn-default btn-block"
+#subscription.container
+  .section_header
+    h3 Acquista
+  p.lead
+    | Compila i dati per la fatturazione e scegli il piano di sottoscrizione.
+  .panel
+    #accordion.panel-group
+      .panel.panel-info
+        .panel-heading
+          h4.panel-title
+            a data-parent="#accordion" data-toggle="collapse" href="#collapseOne"
+              | 1. Dati Fatturazione
+        #collapseOne.panel-collapse.collapse.in
+          .panel-heading
+            | Compila il form con i dati che verranno usati per la fatturazione.
+          #customer-form.panel-body
+            = render 'customer_form'
+      .panel.panel-info
+        .panel-heading
+          h4.panel-title
+            a data-parent="#accordion" data-toggle="collapse" href="#collapseTwo"
+              | 2. Dati Sottoscrizione
+        #collapseTwo.panel-collapse.collapse
+          .panel-heading
+            | Scegli il piano di sottoscrizione al servizio.
+          #subscription-form.panel-body
+            = render 'subscription_form'
+- unless @customer.valid?
+  coffee:
+    $('#paypal-btn').addClass('disabled');

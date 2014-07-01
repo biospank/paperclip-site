@@ -63,13 +63,13 @@ class Paypal
           end
 
           if mc_gross != subscription.plan.discounted_price_decimal
-            subscription.info = "Importo pagamento non corrispondente al piano scelto."
+            subscription.info = "Importo del pagamento non corrisponde al piano scelto."
             return false
           end
 
           # TODO
           # - verifica su txn_id
-          
+
           subscription.info = "Transazione completata."
 
         ensure

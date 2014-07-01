@@ -23,7 +23,7 @@ class SubscriptionPolicy < ApplicationPolicy
     owner?
   end
 
-  def recap?
+  def invoice_download?
     owner?
   end
 

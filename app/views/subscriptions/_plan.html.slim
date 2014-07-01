@@ -1,35 +1,25 @@
-hr
 .form-group
-  label.col-sm-4.control-label Scadenza
-  .col-sm-8
+  label.col-sm-3.control-label Scadenza
+  .col-sm-9
     p.form-control-static.text-primary = l plan.expiry_date
-hr
 .form-group
-  label.col-sm-4.control-label Importo
-  .col-sm-8
+  label.col-sm-3.control-label Importo
+  .col-sm-9
     p.form-control-static.text-primary = number_to_currency plan.price
-hr
 .form-group
-  label.col-sm-4.control-label Sconto
-  .col-sm-8
+  label.col-sm-3.control-label Sconto
+  .col-sm-9
     p.form-control-static.text-primary
       - if plan.discount
         => number_to_currency(((plan.price * plan.discount) / 100))
         | (#{number_to_percentage plan.discount})
       - else
         | -
-hr
 .form-group
-  label.col-sm-4.control-label Totale
-  .col-sm-8
+  label.col-sm-3.control-label Totale
+  .col-sm-9
     p.form-control-static.text-primary
       - if plan.discount
         = number_to_currency(plan.price - ((plan.price * plan.discount) / 100))
       - else
         = number_to_currency(plan.price)
-/ .form-group
-/   label.col-sm-4.control-label Totale
-/   .col-sm-8
-/     p.form-control-static
-/       | I18n.locale:
-/       = I18n.locale
