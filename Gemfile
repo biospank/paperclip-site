@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0'
+gem 'rails', '4.1.2'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -55,6 +55,19 @@ group :development do
 #  gem 'binding_of_caller'
   gem 'quiet_assets'
   gem 'rails_layout'
+end
+
+group :development, :test do
+  gem "rspec-rails", ">= 3.0.0"
+  gem "factory_girl_rails", "~> 4.4.1"
+end
+
+group :test do
+  gem "faker"
+  gem "capybara"
+  gem "database_cleaner"
+  gem "launchy"
+  gem "selenium-webdriver"
 end
 
 # Use ActiveModel has_secure_password

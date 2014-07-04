@@ -13,5 +13,13 @@
     .col-sm-9
       = f.text_field :address, class: 'form-control', placeholder: 'Indirizzo di fatturazione'
   .form-group
+    = f.label :cap, 'CAP', class: 'col-sm-3 control-label'
+    .col-sm-9
+      = f.text_field :cap, class: 'form-control', placeholder: 'Codice avviamento postale'
+  .form-group
+    = f.label :city, 'Città', class: 'col-sm-3 control-label'
+    .col-sm-9
+      = f.text_field :city, class: 'form-control', placeholder: 'Paese, Provincia o Città'
+  .form-group
     .col-sm-12
       = f.submit 'Conferma i dati e continua...', :id => 'customer-data-btn', :class => "btn btn-default pull-right", data: {no_turbolink: true}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140630083310) do
+ActiveRecord::Schema.define(version: 20140701100935) do
 
   create_table "contacts", force: true do |t|
     t.string   "name"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20140630083310) do
     t.string   "name",       null: false
     t.string   "tax_code",   null: false
     t.string   "address",    null: false
+    t.integer  "cap"
+    t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -37,6 +39,33 @@ ActiveRecord::Schema.define(version: 20140630083310) do
     t.string   "url"
     t.datetime "created_at"
   end
+
+  create_table "invoice_lines", force: true do |t|
+    t.integer "invoice_id",  null: false
+    t.string  "description", null: false
+    t.decimal "amount",      null: false
+    t.integer "vat_id",      null: false
+  end
+
+  add_index "invoice_lines", ["invoice_id"], name: "INVOICE_FK_IDX"
+  add_index "invoice_lines", ["vat_id"], name: "VAT_FK_IDX"
+
+  create_table "invoice_serials", force: true do |t|
+    t.integer "serial", null: false
+    t.integer "year",   null: false
+  end
+
+  create_table "invoices", force: true do |t|
+    t.integer  "customer_id",     null: false
+    t.integer  "subscription_id", null: false
+    t.integer  "number",          null: false
+    t.date     "date",            null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invoices", ["customer_id"], name: "CUSTOMER_FK_IDX"
+  add_index "invoices", ["subscription_id"], name: "SUBSCRIPTION_FK_IDX"
 
   create_table "payment_notifications", force: true do |t|
     t.integer  "subscription_id"
@@ -86,5 +115,12 @@ ActiveRecord::Schema.define(version: 20140630083310) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "vats", force: true do |t|
+    t.string  "description",                       null: false
+    t.decimal "percentage",                        null: false
+    t.integer "predefined",  limit: 1, default: 0
+    t.integer "active",      limit: 1, default: 1
+  end
 
 end

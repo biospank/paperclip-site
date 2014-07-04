@@ -8,32 +8,37 @@
         | Di seguito trovi l'elenco in ordine cronologico delle sottoscrizioni da te acquistate per l'utilizzo di Paperclip.
       - if @subscriptions.blank?
         p
-          | Nessusa sottoscrizioni attualmente presente in archivio.
+          | Nessuna sottoscrizione attualmente presente in archivio.
       - else
         table.table.table-bordered.table-hover
           thead
             tr
-              th Data
+              th.center Data
               th Piano
-              th Importo
-              th Sconto
-              th Importo pagato
+              th.right Importo
+              th.right Sconto
+              th.right Importo pagato
               th Stato
-              th Data scadenza
+              th.center Data scadenza
+              th.center Fattura
           tbody
             - @subscriptions.each do |subscription|
               tr class="#{SubscriptionsHelper::STATUS_CLASS[subscription.state.downcase.to_sym]}"
-                td= l subscription.created_at
+                td.center = l subscription.created_at
                 td= subscription.plan.name
-                td= number_to_currency subscription.plan.price
-                td
+                td.right = number_to_currency subscription.plan.price
+                td.right
                   - if subscription.plan.discount
                     => number_to_currency(subscription.plan.discount_amount)
                     | (#{number_to_percentage subscription.plan.discount})
                   - else
                     | -
-                td= number_to_currency subscription.amount
+                td.right = number_to_currency subscription.amount
                 td= subscription.info
-                td= l subscription.expiry_date
+                td.center = l subscription.expiry_date
+                td.center
+                - if subscription.invoice
+                  = link_to subscription_invoice_download_path(subscription), data: {no_turbolink: true} do
+                    i.fa.fa-download
 = content_for :footer do
   = 'fixed'

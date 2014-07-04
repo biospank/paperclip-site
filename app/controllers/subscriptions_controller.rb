@@ -6,7 +6,7 @@ class SubscriptionsController < ApplicationController
 	before_action :find_subscription, only: [:show, :execute, :cancel, :invoice_download, :thank_you]
 
 	def index
-		@subscriptions = policy_scope(Subscription).includes(:plan).order(created_at: :desc).all
+		@subscriptions = policy_scope(Subscription).includes(:plan).order(created_at: :desc).limit(5).all
 	end
 
 	def show
@@ -16,7 +16,7 @@ class SubscriptionsController < ApplicationController
   def new
 		flash.clear
 		@customer = Customer.find_or_initialize_by(user: current_user)
-    @subscription = Subscription.new(email: current_user.email, plan: Plan.first)
+  	@subscription = Subscription.new(email: current_user.email, plan: Plan.first)
   end
 
 	def save_customer_data
@@ -58,7 +58,6 @@ class SubscriptionsController < ApplicationController
 					@subscription.state = payment.state
 					@subscription.info = "Richiesta autorizzazione."
 					@subscription.paypal_payment_token = payment.id
-					@subscription.gen_key_for(current_user)
 	      	redirect_to payment.approval_url
 				else
 					@subscription.state = payment.state
@@ -95,6 +94,9 @@ class SubscriptionsController < ApplicationController
 				# if payment.execute!(@subscription.paypal_customer_token)
 					@subscription.state = payment.state
 					@subscription.info = "Transazione approvata."
+					# to delete
+					# @subscription.create_invoice_for(Customer.find_by_user_id(current_user))
+					# end
 					redirect_to subscription_thank_you_url(@subscription)
 				else
 					@subscription.state = payment.state
@@ -121,9 +123,8 @@ class SubscriptionsController < ApplicationController
 
 		if ipn.send_ack_response(params)
 			if @subscription = Subscription.find_by_paypal_customer_token(ipn.payer_id)
-				if ipn.verify!(@subscription)
-					@subscription.create_invoice_for(Customer.find_by_user_id(current_user))
-					@subscription.save
+				customer = Customer.find_by_user_id(current_user)
+				if ipn.verify!(@subscription, customer)
 					SubscriptionMailer.confirm_subscription(@subscription).deliver
 				end
 			end
@@ -145,14 +146,11 @@ class SubscriptionsController < ApplicationController
 	end
 
 	def invoice_download
-		send_file @subscription.invoice.generate
-	end
-
-	def recap
-		@subscription = policy_scope(Subscription).find(params[:subscription_id])
-		authorize @subscription
-	rescue ActiveRecord::RecordNotFound
-		redirect_to root_url
+		# if pdf_file = @subscription.invoice.pdf_exist?
+		# 	send_file pdf_file
+		# else
+			send_file @subscription.invoice.generate_pdf(view_context)
+		# end
 	end
 
   def plan_detail
@@ -175,7 +173,7 @@ class SubscriptionsController < ApplicationController
   end
 
 	def customer_params
-		params.require(:customer).permit(:name, :tax_code, :address)
+		params.require(:customer).permit(:name, :tax_code, :address, :cap, :city)
 	end
 
 end

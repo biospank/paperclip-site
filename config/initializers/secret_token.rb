@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Paperclip::Application.config.secret_key_base = '7ae740b5e342c4f7cea265c02069507ad121a2a0e412f7cba990d6584f79d0256d584d9a2ed8e963fc854e415520ded5741625ad19eec4e68efc7f405a1a4033'
+Paperclip::Application.config.secret_key_base = ENV["PAPERCLIP_SECRET_TOKEN"]

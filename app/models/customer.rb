@@ -2,8 +2,8 @@ class Customer < ActiveRecord::Base
 
   belongs_to :user
 
-  validates :name, :tax_code, :address, presence: {
-allow_blank: false,
+  validates :name, :tax_code, :address, :cap, :city, presence: {
+    allow_blank: false,
     message: "Tutti i dati sono obbligatori"
   }
   validates :tax_code, length: {

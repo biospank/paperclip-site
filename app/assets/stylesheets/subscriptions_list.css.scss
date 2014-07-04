@@ -19,6 +19,15 @@
 
   .table {
     margin-bottom: attr(data-margin);
+    th.center, td.center {
+      text-align: center;
+    }
+    th.left, td.left {
+      text-align: left;
+    }
+    th.right, td.right {
+      text-align: right;
+    }
   }
 }
 

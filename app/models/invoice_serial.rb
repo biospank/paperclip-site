@@ -15,7 +15,7 @@ class InvoiceSerial < ActiveRecord::Base
         :year => Date.today.year
       )
     else
-      update_attribute(:serial, (pgr.progressivo + 1))
+      pgr.increment!(:serial)
     end
 
     pgr.serial

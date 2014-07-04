@@ -2,50 +2,36 @@ doctype html
 html
   head
     meta charset="utf-8"
-      title Fattura
-      /! CSS relative to tmp
-      = stylesheet_link_tag 'bootstrap/bootstrap'
-      = stylesheet_link_tag './css/custom'
-      = javascript_include_tag "jquery"
-      = javascript_include_tag "./js/common"
-      javascript:
-        | var page = new Page();
-        | $(document).ready(function () {
-          | page.numbered();
-          /!/page.headerRepeat();
-        | });
+    title Fattura
+    = wk_stylesheet_link_tag 'bootstrap/bootstrap', 'print'
+    / = wk_javascript_include_tag "jquery", "print"
   body
     .container
       hr/
-      #segue.segue12
+      .well.well-sm
         .row
-          p.pull-right
-            em SEGUE...
-      #totali
-        .well.well-small
-          .row
-            .col-md-7
-              table#riepilogo.table.table-condensed
-                thead
-                  tr
-                    th.left style=("width: 50%")  Descrizione
-                    th.right style=("width: 20%")  Imponibile
-                    th.right style=("width: 20%")  Iva
-                tbody
-                  - vat = invoice_lines.first.vat
-                  tr
-                    td.left style=("width: 50%") = vat.description
-                    td.right style=("width: 20%") = number_to_currency((amount * 100) / vat.percentage)
-                    td.right style=("width: 20%") = number_to_currency((amount * vat.percentage) / 100)
-            .col-md-4
-              dl.dl-horizontal
-                dt Imponibile
-                dd.right= number_to_currency((amount * 100) / vat.percentage)
-                dt Iva
-                dd.right= number_to_currency((amount * vat.percentage) / 100)
-                dt Totale
-                dd.right= number_to_currency(amount)
+          .col-xs-6
+            table#riepilogo.table.table-condensed
+              thead
+                tr
+                  th.left style=("width: 50%")  Descrizione
+                  th.right style=("width: 20%")  Imponibile
+                  th.right style=("width: 20%")  Iva
+              tbody
+                - vat = invoice.invoice_lines.first.vat
+                tr
+                  td.left style=("width: 50%") = vat.description
+                  td.right style=("width: 20%") = number_to_currency(invoice.taxable_amount)
+                  td.right style=("width: 20%") = number_to_currency(invoice.vat_amount)
+          .col-xs-6
+            dl#totali.dl-horizontal
+              dt Imponibile
+              dd.right= number_to_currency(invoice.taxable_amount)
+              dt Iva
+              dd.right= number_to_currency(invoice.vat_amount)
+              dt Totale
+              dd.right= number_to_currency(invoice.total_amount)
       .row
         .col-md-12
           footer.center
-            = ['Papergest S.r.l.', 'Via Libertà, 44', ' - 20060', 'Gessate (MI)', 'P.Iva 12345678910'].join(' ')
+            | Papergest S.r.l. Via Libertà, 44 - 20060 Gessate (MI) P.Iva 12345678910

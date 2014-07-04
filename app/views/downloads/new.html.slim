@@ -1,4 +1,4 @@
-.container
+#download.container
 	.section_header
 		h3 Download
 	p.lead
@@ -62,4 +62,6 @@
 								| Password:
 							dd
 								| admin
-						= button_to "Scarica", downloads_path, {method: :post, data: { disable_with: 'Scarica' }, params: { category: 1, version: 'easy' }, class: 'btn btn-success pull-right', id: 'download'}
+						.row
+							.col-md-3.col-md-offset-9
+								= button_to "Scarica", downloads_path, {method: :post, data: { disable_with: 'Scarica' }, params: { category: 1, version: 'easy' }, class: 'btn btn-success btn-block', id: 'download'}

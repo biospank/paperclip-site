@@ -42,4 +42,10 @@ Paperclip::Application.configure do
   # Send email in development mode.
   config.action_mailer.perform_deliveries = true
 
+  # config.assets.precompile += %w( bootstrap/bootstrap.css home.css subscriptions.css print.css jquery.js home.js subscriptions.js print.js)
+  # serve a far in modo che gli snippet html per
+  # generare il pdf carichino gli assets dalla direcory
+  # public con il formato fingerprint
+  # config.assets.digest = true
+
 end

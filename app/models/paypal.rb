@@ -43,7 +43,7 @@ class Paypal
       # "address_state"=>"CA", "mc_gross1"=>"9.34", "payment_type"=>"instant",
       # "address_street"=>"123, any street", "subscription_id"=>"12"}
       # Completed 401 Unauthorized in 22ms
-      def verify!(subscription)
+      def verify!(subscription, customer)
         begin
           subscription.state = payment_status
 
@@ -71,6 +71,12 @@ class Paypal
           # - verifica su txn_id
 
           subscription.info = "Transazione completata."
+
+          subscription.create_invoice_for(customer)
+
+          subscription.gen_key_for(customer)
+
+          subscription.state = Subscription::STATUS::ACTIVE
 
         ensure
           PaymentNotification.create!(
@@ -109,7 +115,7 @@ class Paypal
           :amount => {
             :total => subscription[:amount],
             :currency => "EUR" },
-          :description => "Paperclip: sottoscrizione piano #{subscription[:plan]} € #{subscription[:amount]}" } ] } )
+          :description => "Paperclip: sottoscrizione piano #{subscription[:plan].downcase} € #{subscription[:amount]}" } ] } )
     when :execute
       @payment = PayPal::SDK::REST::Payment.new({
         :payment_id => subscription[:payment_token]

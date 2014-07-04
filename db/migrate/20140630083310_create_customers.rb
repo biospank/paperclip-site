@@ -6,7 +6,7 @@ class CreateCustomers < ActiveRecord::Migration
     t.string   :tax_code, null: false
     t.string   :address, null: false
     t.integer  :cap
-    t.integer  :city
+    t.string  :city
     t.timestamps
    end
 

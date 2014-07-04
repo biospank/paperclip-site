@@ -1,24 +1,26 @@
-# Add application configuration variables here, as shown below.
-#
+# setup dirs
+# /tmp/tpls
 
 test: &default
-
-  GMAIL_USERNAME: ciccio.pasticcio
-  GMAIL_PASSWORD: ciccio123
+  GMAIL_USERNAME: fabio.petrucci
+  GMAIL_PASSWORD: paletto71
   MAILCHIMP_API_KEY: Your_MailChimp_API_Key
   MAILCHIMP_LIST_ID: Your_List_ID
   DOMAIN_NAME: example.com
-  OWNER_EMAIL: ciccio.pasticcio@gmail.com
+  OWNER_EMAIL: fabio.petrucci@gmail.com
 
   # Mode can be 'live' or 'sandbox'
   PAYPAL_MODE: sandbox
 
   # Credentials for PAYPAL REST APIs
-  PAYPAL_CLIENT_ID: take this from paypal developer sandbox
-  PAYPAL_CLIENT_SECRET: take this from paypal developer sandbox
+  PAYPAL_CLIENT_ID: AZ6o1xD9n-Gs2rNvnOqAJDy7u5I-fKOBxkJeHfNYf1pSS4hDB-U8gcPj0FiR
+  PAYPAL_CLIENT_SECRET: EMEdRhBLHU6PQ-l7mE3ml2MeSHsZEtYKi_sznyD-_T8BzeCSpCKBNXHgGPU7
 
-  PAYPAL_OWNER_EMAIL: ciccio.pasticcio-facilitator@gmail.com
+  PAYPAL_OWNER_EMAIL: fabio.petrucci-facilitator@gmail.com
   PAYPAL_ACK_URL: "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate"
+
+  PAPERCLIP_AWS_DOWNLOAD_PATH: "https://s3.amazonaws.com/papergest/paperclip/Paperclip-3.0-demo"
+  PAPERCLIP_SECRET_TOKEN: '7ae740b5e342c4f7cea265c02069507ad121a2a0e412f7cba990d6584f79d0256d584d9a2ed8e963fc854e415520ded5741625ad19eec4e68efc7f405a1a4033'
 
 development:
   <<: *default

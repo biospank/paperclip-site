@@ -24,7 +24,7 @@ li
 = nav_menu_item new_contact_path()
   = link_to 'CONTATTI', new_contact_path()
 = nav_menu_item new_download_path()
-  = link_to 'DOWNLOAD', new_download_path()
+  = link_to 'DOWNLOAD', new_download_path(), data: {no_turbolink: true}
 li
   a href="blog.html"  BLOG
 - if user_signed_in?

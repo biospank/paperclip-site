@@ -14,5 +14,5 @@
   #plan_detail
     = render 'plan', plan: @subscription.plan
   .form-group
-    .col-sm-12
-      = f.submit 'Acquista con PayPal', :id => 'paypal-btn', :class => "btn btn-success pull-right"
+    .col-sm-4.col-sm-offset-8
+      = f.submit 'Acquista con PayPal', :id => 'paypal-btn', :class => "btn btn-success btn-block"

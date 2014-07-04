@@ -1,0 +1,24 @@
+// Place all the styles related to the download controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#download {
+  margin-top: 70px;
+
+  .section_header {
+    margin-bottom: 40px;
+  }
+
+  p.lead {
+    color: #939394;
+    font-size: 19px;
+    margin-bottom: 47px;
+    font-style: italic;
+    line-height: 24px;
+  }
+
+  #accordion {
+    margin-bottom: 40px;
+  }
+
+}
