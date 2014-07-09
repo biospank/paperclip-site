@@ -16,12 +16,20 @@ class SubscriptionsController < ApplicationController
   def new
 		flash.clear
 		@customer = Customer.find_or_initialize_by(user: current_user)
-  	@subscription = Subscription.new(email: current_user.email, plan: Plan.first)
+		if @customer.services.empty?
+			@service = Service.find(params[:service])
+  		@subscription = Subscription.new(email: current_user.email, plan: Plan.first)
+		else
+			@service = @customer.services.first
+			@subscription = Subscription.new(email: current_user.email, plan: Plan.where(service: @service).first)
+		end
   end
 
 	def save_customer_data
 		@customer = Customer.find_or_initialize_by(user: current_user)
 		@customer.attributes = customer_params
+		#binding.pry
+		#@plan = Plan.find(params[:subscription][:plan_id])
 
 		respond_to do |format|
 			if @customer.valid?
@@ -48,6 +56,7 @@ class SubscriptionsController < ApplicationController
 				@subscription.save
 				payment = Paypal.new(
 						action: :request,
+						service: @subscription.plan.service.name,
 						plan: @subscription.plan.name,
 						amount: @subscription.plan.discounted_price_decimal,
 						confirm_url: subscription_execute_url(@subscription),
@@ -146,11 +155,11 @@ class SubscriptionsController < ApplicationController
 	end
 
 	def invoice_download
-		# if pdf_file = @subscription.invoice.pdf_exist?
-		# 	send_file pdf_file
-		# else
+		if pdf_file = @subscription.invoice.pdf_exist?
+			send_file pdf_file
+		else
 			send_file @subscription.invoice.generate_pdf(view_context)
-		# end
+		end
 	end
 
   def plan_detail
@@ -173,7 +182,7 @@ class SubscriptionsController < ApplicationController
   end
 
 	def customer_params
-		params.require(:customer).permit(:name, :tax_code, :address, :cap, :city)
+		params.require(:customer).permit(:name, :tax_code, :address, :cap, :city, :service_ids)
 	end
 
 end

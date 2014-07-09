@@ -2,7 +2,7 @@ describe Invoice do
 
   describe "valid" do
     before :each do
-      @invoice = FactoryGirl.build(:invoice)
+      @invoice = build(:invoice)
     end
 
     it "expose method #generate" do
@@ -15,41 +15,41 @@ describe Invoice do
   end
 
   it "is not valid without customer" do
-    @invoice = FactoryGirl.build(:invoice, customer: nil)
+    @invoice = build(:invoice, customer: nil)
     expect(@invoice).not_to be_valid
     expect(@invoice.errors).to include(:customer)
   end
 
   it "is not valid without subscription" do
-    @invoice = FactoryGirl.build(:invoice, subscription: nil)
+    @invoice = build(:invoice, subscription: nil)
     expect(@invoice).not_to be_valid
     expect(@invoice.errors).to include(:subscription)
   end
 
   it "is not valid without number" do
-    @invoice = FactoryGirl.build(:invoice, number: nil)
+    @invoice = build(:invoice, number: nil)
     expect(@invoice).not_to be_valid
     expect(@invoice.errors).to include(:number)
   end
 
   it "is not valid with duplicate number" do
-    FactoryGirl.create(:invoice)
-    @invoice = FactoryGirl.build(:invoice)
+    create(:invoice, number: 300)
+    @invoice = build(:invoice, number: 300)
     expect(@invoice).not_to be_valid
     expect(@invoice.errors).to include(:number)
   end
 
   it "is not valid without date" do
-    @invoice = FactoryGirl.build(:invoice, date: nil)
+    @invoice = build(:invoice, date: nil)
     expect(@invoice).not_to be_valid
     expect(@invoice.errors).to include(:date)
   end
 
   it "is not valid with past date" do
-    @invoice.date = Date.yesterday
+    @invoice = build(:invoice, date: Date.yesterday)
     expect(@invoice).not_to be_valid
     expect(@invoice.errors).to include(:date)
   end
 
-  
+
 end

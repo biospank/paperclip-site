@@ -1,6 +1,7 @@
 class Customer < ActiveRecord::Base
 
   belongs_to :user
+  has_and_belongs_to_many :services
 
   validates :name, :tax_code, :address, :cap, :city, presence: {
     allow_blank: false,

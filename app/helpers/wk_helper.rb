@@ -51,7 +51,7 @@ module WkHelper
     params << "--debug-javascript"
     params << "--header-line" if opts[:header_line]
     params << "--footer-line" if opts[:footer_line]
-    params << "#{body.path} #{File.join(PUBLIC_PATH, PDF_PATH, template)}.pdf"
+    params << "#{body.path} #{WkHelper.root_path.join('public', PDF_PATH, template)}.pdf"
 
     cmd_params = wk_cmd % params.join(' ')
     logger.info "executing: #{cmd_params}"

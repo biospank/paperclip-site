@@ -13,7 +13,13 @@ class Invoice < ActiveRecord::Base
   validate :past_date
 
   def pdf_exist?
-    File.join(WkHelper::PUBLIC_PATH, WkHelper::PDF_PATH, (pdf_name + pdf_suffix)) if File.exist?(File.join(WkHelper::PUBLIC_PATH, WkHelper::PDF_PATH, (pdf_name + pdf_suffix)))
+    pdf_path = File.join(WkHelper::PUBLIC_PATH, WkHelper::PDF_PATH, (pdf_name + pdf_suffix))
+
+    if File.exist?(pdf_path)
+      return pdf_path
+    else
+      return nil
+    end
   end
 
   def generate_pdf(ctx)

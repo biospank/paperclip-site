@@ -115,7 +115,7 @@ class Paypal
           :amount => {
             :total => subscription[:amount],
             :currency => "EUR" },
-          :description => "Paperclip: sottoscrizione piano #{subscription[:plan].downcase} € #{subscription[:amount]}" } ] } )
+          :description => "#{subscription[:service]}: sottoscrizione piano #{subscription[:plan].downcase} € #{subscription[:amount]}" } ] } )
     when :execute
       @payment = PayPal::SDK::REST::Payment.new({
         :payment_id => subscription[:payment_token]

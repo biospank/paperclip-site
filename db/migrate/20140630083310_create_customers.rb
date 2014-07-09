@@ -10,7 +10,7 @@ class CreateCustomers < ActiveRecord::Migration
     t.timestamps
    end
 
-   execute "SELECT setval('customers_id_seq', 1000)" rescue nil # postgresql
-   execute "UPDATE SQLITE_SEQUENCE SET seq = 1000 WHERE name = 'customers'" rescue nil # sqlite
+  #  execute "SELECT setval('customers_id_seq', 1000)" rescue nil # postgresql
+  #  execute "UPDATE SQLITE_SEQUENCE SET seq = 1000 WHERE name = 'customers'" rescue nil # sqlite
  end
 end

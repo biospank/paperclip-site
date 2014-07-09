@@ -18,8 +18,8 @@ class Subscription < ActiveRecord::Base
   }
 
   def gen_key_for(customer)
-    self.key = [(customer.id * 1000), (self.id * 1000), self.expiry_date.to_time.to_i].map do |chunk|
-      chunk.to_s.unpack('H*')
+    self.key = [[(customer.id + 1000).to_s], [(self.id + 1000).to_s], [self.expiry_date.to_time.to_i.to_s]].map do |chunk|
+      chunk.pack('m')
     end.join('-')
   end
 

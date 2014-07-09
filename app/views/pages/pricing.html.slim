@@ -22,7 +22,7 @@
                   | aggiornamenti
                 p
                   | supporto email
-              = link_to 'ACQUISTA ORA', new_subscription_path(), class: 'order'
+              = link_to 'ACQUISTA ORA', new_subscription_path(service: Service::PAPERCLIP::SINGLE), class: 'order'
         /! Plan Box
         .col-sm-3.ultra
           .plan
@@ -42,7 +42,7 @@
                     | aggiornamenti
                   p
                     | supporto email
-                = link_to 'CONTATTACI', new_contact_path(), class: 'order'
+                = link_to 'ACQUISTA ORA', new_subscription_path(service: Service::PAPERCLIP::NET), class: 'order'
         /! Plan Box
         .col-sm-3
           .plan
@@ -60,7 +60,7 @@
                   | aggiornamenti
                 p
                   | supporto email
-              = link_to 'CONTATTACI', new_contact_path(), class: 'order'
+              = link_to 'ACQUISTA ORA', new_subscription_path(service: Service::PAPERCLIP::CLOUD), class: 'order'
         /! Plan Box
         .col-sm-3.black
           .plan

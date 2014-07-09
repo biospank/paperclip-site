@@ -31,6 +31,6 @@ module Paperclip
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     #config.i18n.locale = :it
     config.i18n.default_locale = :it
-    I18n.default_locale = :it
+    #I18n.default_locale = :it
   end
 end

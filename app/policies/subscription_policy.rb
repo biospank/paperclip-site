@@ -38,6 +38,6 @@ class SubscriptionPolicy < ApplicationPolicy
   private
 
   def owner?
-    record.user_id == user.id
+    user.admin? || (record.user_id == user.id)
   end
 end

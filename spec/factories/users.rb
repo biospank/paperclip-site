@@ -1,8 +1,8 @@
-FactoryGirl.define do
-  sequence(:email) {|n| "person-#{n}@example.com" }
+require 'faker'
 
+FactoryGirl.define do
   factory :user do
-    email
+    email { Faker::Internet.email }
     sequence(:encrypted_password) {|n| "xxxxxx-#{n}@example.com" }
   end
 end

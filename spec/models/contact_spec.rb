@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Contact do
   before :each do
-    @contact = FactoryGirl.build(:contact)
+    @contact = build(:contact)
   end
 
   it "is valid with a name, email and message" do
