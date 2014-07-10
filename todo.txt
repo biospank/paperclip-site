@@ -1,0 +1,8 @@
+fatturazione
+  - modificare i dati del mittente (anche nel footer)
+
+paypal (produzione)
+  - attivare le notifiche IPN per Papergest
+    - sezione 'profilo' -> 'preferenze notifica immediata di pagamento'
+      es: http://f7c7ba2.ngrok.com/subscriptions/ipn
+  - configurazione application.yml

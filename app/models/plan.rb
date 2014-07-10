@@ -3,7 +3,7 @@ class Plan < ActiveRecord::Base
   belongs_to :service
 
   def expiry_date
-    Date.today.months_since(self.months)
+    (Date.today.months_since(self.months) + 7)
   end
 
   def discount_amount

@@ -7,7 +7,8 @@ class SubscriptionPolicy < ApplicationPolicy
       scope.where("lower(state) in (?)", [
         Paypal::PAYMENT::STATUS::PENDING.downcase,
         Paypal::PAYMENT::STATUS::APPROVED.downcase,
-        Paypal::PAYMENT::STATUS::COMPLETED.downcase]
+        Paypal::PAYMENT::STATUS::COMPLETED.downcase,
+        Subscription::STATUS::ACTIVE]
       ).where(:user_id => user.id)
     end
   end

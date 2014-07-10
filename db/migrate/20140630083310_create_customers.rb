@@ -5,8 +5,8 @@ class CreateCustomers < ActiveRecord::Migration
     t.string   :name, null: false
     t.string   :tax_code, null: false
     t.string   :address, null: false
-    t.integer  :cap
-    t.string  :city
+    t.string   :cap, null: false
+    t.string   :city, null: false
     t.timestamps
    end
 

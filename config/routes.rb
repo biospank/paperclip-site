@@ -8,6 +8,7 @@ Paperclip::Application.routes.draw do
   end
 
   post 'subscription/save_customer_data' => 'subscriptions#save_customer_data'
+  post 'subscription/reload' => 'subscriptions#reload', :as => 'subscription_reload'
   post 'subscriptions/plan_detail' => 'subscriptions#plan_detail'
   post 'subscriptions/ipn' => 'subscriptions#confirm', :as => 'subscription_confirm'
   # get 'subscription/:id/confirm' => 'subscriptions#confirm', :as => 'subscription_confirm'

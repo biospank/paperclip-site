@@ -20,7 +20,7 @@ li
     = nav_menu_item page_path('liquidazione_iva')
       = link_to 'Liquidazione IVA', page_path('liquidazione_iva')
 = nav_menu_item [page_path('pricing'), new_subscription_path()]
-  = link_to 'ACQUISTA', current_user.customer ? new_subscription_path : page_path('pricing')
+  = link_to 'ACQUISTA', (user_signed_in? && current_user.customer) ? new_subscription_path : page_path('pricing'), data: {no_turbolink: true}
 = nav_menu_item new_contact_path()
   = link_to 'CONTATTI', new_contact_path()
 = nav_menu_item new_download_path()

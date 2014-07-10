@@ -14,9 +14,8 @@
           thead
             tr
               th.center Data
+              th Servizio
               th Piano
-              th.right Importo
-              th.right Sconto
               th.right Importo pagato
               th Stato
               th.center Data scadenza
@@ -25,20 +24,14 @@
             - @subscriptions.each do |subscription|
               tr class="#{SubscriptionsHelper::STATUS_CLASS[subscription.state.downcase.to_sym]}"
                 td.center = l subscription.created_at
+                td= subscription.plan.service.name
                 td= subscription.plan.name
-                td.right = number_to_currency subscription.plan.price
-                td.right
-                  - if subscription.plan.discount
-                    => number_to_currency(subscription.plan.discount_amount)
-                    | (#{number_to_percentage subscription.plan.discount})
-                  - else
-                    | -
                 td.right = number_to_currency subscription.amount
                 td= subscription.info
                 td.center = l subscription.expiry_date
                 td.center
-                - if subscription.invoice
-                  = link_to subscription_invoice_download_path(subscription), data: {no_turbolink: true} do
-                    i.fa.fa-download
+                  - if subscription.invoice
+                    = link_to subscription_invoice_download_path(subscription), data: {no_turbolink: true} do
+                      i.fa.fa-download
 = content_for :footer do
   = 'fixed'

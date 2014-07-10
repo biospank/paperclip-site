@@ -132,8 +132,7 @@ class SubscriptionsController < ApplicationController
 
 		if ipn.send_ack_response(params)
 			if @subscription = Subscription.find_by_paypal_customer_token(ipn.payer_id)
-				customer = Customer.find_by_user_id(current_user)
-				if ipn.verify!(@subscription, customer)
+				if ipn.verify!(@subscription)
 					SubscriptionMailer.confirm_subscription(@subscription).deliver
 				end
 			end
@@ -159,6 +158,15 @@ class SubscriptionsController < ApplicationController
 			send_file pdf_file
 		else
 			send_file @subscription.invoice.generate_pdf(view_context)
+		end
+	end
+
+	def reload
+		@service = Service.find(params[:service])
+		@subscription = Subscription.new(email: current_user.email, plan: Plan.where(service: @service).first)
+
+		respond_to do |format|
+			format.js { render 'reload' }
 		end
 	end
 

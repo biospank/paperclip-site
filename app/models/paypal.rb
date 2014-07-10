@@ -43,7 +43,7 @@ class Paypal
       # "address_state"=>"CA", "mc_gross1"=>"9.34", "payment_type"=>"instant",
       # "address_street"=>"123, any street", "subscription_id"=>"12"}
       # Completed 401 Unauthorized in 22ms
-      def verify!(subscription, customer)
+      def verify!(subscription)
         begin
           subscription.state = payment_status
 
@@ -62,15 +62,17 @@ class Paypal
             return false
           end
 
-          if mc_gross != subscription.plan.discounted_price_decimal
-            subscription.info = "Importo del pagamento non corrisponde al piano scelto."
-            return false
-          end
+          # if mc_gross != subscription.plan.discounted_price_decimal
+          #   subscription.info = "Importo del pagamento non corrisponde al piano scelto."
+          #   return false
+          # end
 
           # TODO
           # - verifica su txn_id
 
           subscription.info = "Transazione completata."
+
+          customer = Customer.find_by_user_id(subscription.user_id)
 
           subscription.create_invoice_for(customer)
 

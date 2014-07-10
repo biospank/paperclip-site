@@ -23,4 +23,7 @@ it:
         precision: 1
         separator: '.'
         strip_insignificant_zeros: true
-        
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "Record non valido"

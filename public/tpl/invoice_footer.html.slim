@@ -10,7 +10,7 @@ html
       hr/
       .well.well-sm
         .row
-          .col-xs-6
+          .col-xs-7
             table#riepilogo.table.table-condensed
               thead
                 tr
@@ -23,7 +23,7 @@ html
                   td.left style=("width: 50%") = vat.description
                   td.right style=("width: 20%") = number_to_currency(invoice.taxable_amount)
                   td.right style=("width: 20%") = number_to_currency(invoice.vat_amount)
-          .col-xs-6
+          .col-xs-5
             dl#totali.dl-horizontal
               dt Imponibile
               dd.right= number_to_currency(invoice.taxable_amount)
@@ -32,6 +32,6 @@ html
               dt Totale
               dd.right= number_to_currency(invoice.total_amount)
       .row
-        .col-md-12
+        .col-xs-12
           footer.center
             | Papergest S.r.l. Via Libertà, 44 - 20060 Gessate (MI) P.Iva 12345678910

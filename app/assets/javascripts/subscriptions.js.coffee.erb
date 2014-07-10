@@ -1,11 +1,23 @@
 $(document).ready ->
-  $('#subscription_plan_id').change ->
-    $.ajax
-      url: '/subscriptions/plan_detail.js'
-      data: $('#new_subscription').serialize()
-      type: 'POST'
-  $('#paypal-btn').click ->
-    $(this).val('Elaborazione in corso...')
-    $(this).addClass('disabled')
+  $('#customer-form').on
+    change: ->
+      $.ajax(
+        url: '/subscription/reload.js'
+        data: { service: $(this).val() }
+        type: 'POST').done ->
+        $('#paypal-btn').addClass('disabled')
+    , '#customer_service_ids'
+  $('#subscription-form').on
+    change: ->
+      $.ajax
+        url: '/subscriptions/plan_detail.js'
+        data: $('#new_subscription').serialize()
+        type: 'POST'
+    , '#subscription_plan_id'
+  $('#subscription-form').on
+    click: ->
+      $(this).val('Elaborazione in corso...')
+      $(this).addClass('disabled')
+    , '#paypal-btn'
   $('#customer-data-btn').click ->
     $(this).addClass('disabled')
