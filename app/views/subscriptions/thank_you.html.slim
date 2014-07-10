@@ -43,10 +43,16 @@
             | Sconto:
           dd
             - if @subscription.plan.discount
-              => number_to_currency(((@subscription.plan.price * @subscription.plan.discount) / 100))
+              => number_to_currency(@subscription.plan.discount_amount)
               | (#{number_to_percentage @subscription.plan.discount})
             - else
               | -
+          hr
+          dt
+            | IVA:
+          dd
+            => number_to_currency(@subscription.plan.vat_amount)
+            | (#{number_to_percentage Vat.current.percentage})
           hr
           dt
             | Totale pagato:

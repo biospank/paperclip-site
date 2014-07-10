@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20140709161646) do
     t.string   "name",       null: false
     t.string   "tax_code",   null: false
     t.string   "address",    null: false
-    t.integer  "cap"
-    t.string   "city"
+    t.string   "cap",        null: false
+    t.string   "city",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

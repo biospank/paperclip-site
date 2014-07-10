@@ -17,4 +17,16 @@ class Plan < ActiveRecord::Base
   def discounted_price_decimal
     '%.2f' % discounted_price
   end
+
+  def vat_amount
+    ((discounted_price * Vat.current.percentage) / 100)
+  end
+
+  def grand_total
+    discounted_price + vat_amount
+  end
+
+  def grand_total_string
+    '%.2f' % grand_total
+  end
 end

@@ -44,19 +44,29 @@ class Invoice < ActiveRecord::Base
   end
 
   # calcolo dell'imponibile partendo dal totale
-  def taxable_amount()
-    (total_amount() - vat_amount())
-  end
+  # def taxable_amount()
+  #   (amount() - vat_amount())
+  # end
+  #
+  # # scorporo iva partendo da un totale
+  # def vat_spin_off()
+  #   vat_percentage = Vat.current.percentage
+  #   total = amount()
+  #   ((total * vat_percentage) / (vat_percentage + 100))
+  # end
 
-  # scorporo iva partendo da un totale
   def vat_amount()
-    vat_percentage = Vat.current.percentage
-    total = total_amount()
-    ((total * vat_percentage) / (vat_percentage + 100))
+    self.invoice_lines.map do |line|
+      line.vat_amount
+    end.reduce(:+)
   end
 
-  def total_amount
-    @grand_total ||= self.invoice_lines.sum(:amount)
+  def amount
+    @amount ||= self.invoice_lines.sum(:amount)
+  end
+
+  def grand_total
+    amount + vat_amount
   end
 
   protected

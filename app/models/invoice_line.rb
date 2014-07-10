@@ -8,8 +8,12 @@ class InvoiceLine < ActiveRecord::Base
   end
 
   # scorporo iva partendo da un totale
-  def vat_amount()
+  def vat_spin_off()
     ((self.amount * self.vat.percentage) / (self.vat.percentage + 100))
+  end
+
+  def vat_amount()
+    ((self.amount * self.vat.percentage) / 100)
   end
 
 end

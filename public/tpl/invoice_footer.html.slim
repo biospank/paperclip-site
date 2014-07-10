@@ -21,16 +21,16 @@ html
                 - vat = invoice.invoice_lines.first.vat
                 tr
                   td.left style=("width: 50%") = vat.description
-                  td.right style=("width: 20%") = number_to_currency(invoice.taxable_amount)
+                  td.right style=("width: 20%") = number_to_currency(invoice.amount)
                   td.right style=("width: 20%") = number_to_currency(invoice.vat_amount)
           .col-xs-5
             dl#totali.dl-horizontal
               dt Imponibile
-              dd.right= number_to_currency(invoice.taxable_amount)
+              dd.right= number_to_currency(invoice.amount)
               dt Iva
               dd.right= number_to_currency(invoice.vat_amount)
               dt Totale
-              dd.right= number_to_currency(invoice.total_amount)
+              dd.right= number_to_currency(invoice.grand_total)
       .row
         .col-xs-12
           footer.center

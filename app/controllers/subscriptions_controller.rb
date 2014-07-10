@@ -52,13 +52,13 @@ class SubscriptionsController < ApplicationController
 
 				@subscription.user_id = current_user.id
 				@subscription.expiry_date = @subscription.plan.expiry_date
-				@subscription.amount = @subscription.plan.discounted_price
+				@subscription.amount = @subscription.plan.grand_total
 				@subscription.save
 				payment = Paypal.new(
 						action: :request,
 						service: @subscription.plan.service.name,
 						plan: @subscription.plan.name,
-						amount: @subscription.plan.discounted_price_decimal,
+						amount: @subscription.plan.grand_total_string,
 						confirm_url: subscription_execute_url(@subscription),
 						cancel_url: subscription_cancel_url(@subscription)
 				)

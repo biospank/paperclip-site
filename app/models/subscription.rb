@@ -34,7 +34,7 @@ class Subscription < ActiveRecord::Base
     invoice.invoice_lines = [
       InvoiceLine.new(
         description: "#{self.plan.service.name}: sottoscrizione piano #{self.plan.name.downcase}",
-        amount: self.amount,
+        amount: self.plan.discounted_price,
         vat: Vat.current
       )
     ]
