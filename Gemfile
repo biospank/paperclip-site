@@ -12,6 +12,10 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3'
+gem 'pg'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -58,8 +62,6 @@ group :development do
 end
 
 group :development, :test do
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
   gem "rspec-rails", ">= 3.0.0"
   gem "factory_girl_rails", "~> 4.4.1"
 end
