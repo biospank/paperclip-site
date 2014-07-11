@@ -21,6 +21,7 @@ test: &default
 
   PAPERCLIP_AWS_DOWNLOAD_PATH: "https://s3.amazonaws.com/papergest/paperclip/Paperclip-3.0-demo"
   PAPERCLIP_SECRET_TOKEN: '7ae740b5e342c4f7cea265c02069507ad121a2a0e412f7cba990d6584f79d0256d584d9a2ed8e963fc854e415520ded5741625ad19eec4e68efc7f405a1a4033'
+  DEVISE_SECRET_TOKEN: '516a8a7af704fcfc99d4ba3e39eac99b0265376c6732560b658775caf0d3a11c47be826bce6b58696aeba657f26119c8a6ee47aa250accaf2e58d06ba94c0ba1'
 
 development:
   <<: *default
