@@ -56,6 +56,8 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
 end
 
 group :development, :test do
