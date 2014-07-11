@@ -120,6 +120,7 @@ GEM
     paypal-sdk-rest (0.6.1)
       paypal-sdk-core (~> 0.2.8)
       uuidtools (~> 2.1)
+    pg (0.17.1)
     polyglot (0.3.5)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -252,6 +253,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   paypal-sdk-rest
+  pg
   pry-rails
   pundit
   quiet_assets

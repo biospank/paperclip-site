@@ -14,7 +14,6 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-gem 'pg'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -74,6 +73,9 @@ group :test do
   gem "selenium-webdriver"
 end
 
+group :production do
+  gem 'pg'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
