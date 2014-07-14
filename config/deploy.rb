@@ -24,7 +24,7 @@ set :deploy_to, '/var/www/webapps/papergest'
 # set :pty, true
 
 # Default value for :linked_files is []
-#set :linked_files, %w{config/database.yml.example config/application.yml.example}
+set :linked_files, %w{config/database.yml config/application.yml}
 
 # Default value for linked_dirs is []
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
@@ -41,18 +41,7 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       execute "sudo /etc/init.d/apache2 restart"
-      # execute :touch, release_path.join('tmp/restart.txt')
     end
-  end
-
-  desc 'Symlink the shared database configuration file'
-  task :symlink_db_config do
-    run "ln -s #{shared_path}/database.yml #{release_path}/config/"
-  end
-
-  desc 'Symlink the shared env configuration file'
-  task :symlink_env_config do
-    run "ln -s #{shared_path}/application.yml #{release_path}/config/"
   end
 
   after :publishing, :restart
