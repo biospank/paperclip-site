@@ -1,7 +1,7 @@
 class CreatePlans < ActiveRecord::Migration
   def change
     create_table :plans do |t|
-      t.string  :service_id, null: false
+      t.integer  :service_id, null: false
       t.string  :name
       t.integer :months
       t.decimal :price
