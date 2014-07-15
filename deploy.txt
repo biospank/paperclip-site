@@ -1,0 +1,9 @@
+- in /var/www/webapps/papergest/shared/config
+  configurazione database e application (yml)
+- lanciare il comando 'cap production deploy:seed'
+- lanciare il comando 'cap production deploy:setup'
+
+paypal
+  - attivare le notifiche IPN per Papergest
+    - sezione 'profilo' -> 'preferenze notifica immediata di pagamento'
+      es: http://f7c7ba2.ngrok.com/subscriptions/ipn

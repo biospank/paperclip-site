@@ -21,21 +21,21 @@ module WkHelper
 
     if opts[:header]
       logger.debug "rendering header..."
-      self.header = File.new("./tmp/tpls/header#{xyz}.html", 'w')
+      self.header = File.new("#{Rails.root}/tmp/tpls/header#{xyz}.html", 'w')
       render_header(opts)
       header.close
     end
 
     if opts[:body]
       logger.debug "rendering body..."
-      self.body = File.new("./tmp/tpls/body#{xyz}.html", 'w')
+      self.body = File.new("#{Rails.root}./tmp/tpls/body#{xyz}.html", 'w')
       render_body(opts)
       body.close
     end
 
     if opts[:footer]
       logger.debug "rendering footer..."
-      self.footer = File.new("./tmp/tpls/footer#{xyz}.html", 'w')
+      self.footer = File.new("#{Rails.root}/tmp/tpls/footer#{xyz}.html", 'w')
       render_footer(opts)
       footer.close
     end
