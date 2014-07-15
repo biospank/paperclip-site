@@ -17,6 +17,7 @@ describe Subscription do
   end
 
   describe "active:" do
-    
+
   end
+
 end

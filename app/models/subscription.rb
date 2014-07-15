@@ -1,6 +1,7 @@
 class Subscription < ActiveRecord::Base
 
   belongs_to :plan
+  belongs_to :user
   has_one :invoice
 
   validates_presence_of :plan_id
