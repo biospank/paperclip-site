@@ -1,11 +1,11 @@
 FactoryGirl.define do
   factory :customer do
-    sequence(:user_id)
-    name "Canistracci Oil S.r.l."
-    sequence(:tax_code) {|n| "12345678910"}
-    address "Via della Camilluccia 13"
-    cap 20060
-    city "Gessate"
+    association(:user)
+    name { Faker::Company.name }
+    tax_code { Faker::Number.number(11) }
+    address { Faker::Address.street_address }
+    cap { Faker::Address.zip_code.to_s }
+    city { Faker::Address.city }
   end
 
 end

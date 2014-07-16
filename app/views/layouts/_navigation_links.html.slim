@@ -1,7 +1,7 @@
 = nav_menu_item root_path
   = link_to 'HOME', root_path
-li
-  a href="about-us.html"  ABOUT US
+/ li
+/   a href="about-us.html"  ABOUT US
 = nav_menu_item [page_path('fatturazione'), page_path('scadenzario'), page_path('prima_nota'), page_path('magazzino'), page_path('bilancio'), page_path('liquidazione_iva')], 'dropdown'
   a.dropdown-toggle data-toggle="dropdown" href="#"
     | MODULI
@@ -25,8 +25,8 @@ li
   = link_to 'CONTATTI', new_contact_path()
 = nav_menu_item new_download_path()
   = link_to 'DOWNLOAD', new_download_path(), data: {no_turbolink: true}
-li
-  a href="blog.html"  BLOG
+/ li
+/   a href="blog.html"  BLOG
 - if user_signed_in?
   = nav_menu_item [subscriptions_path(), destroy_user_session_path()], 'dropdown'
     a.dropdown-toggle data-toggle="dropdown" href="#"

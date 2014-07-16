@@ -2,12 +2,12 @@
 # /tmp/tpls
 
 test: &default
-  GMAIL_USERNAME: fabio.petrucci
-  GMAIL_PASSWORD: paletto71
+  GMAIL_USERNAME: test@gmail.com
+  GMAIL_PASSWORD: test123
   MAILCHIMP_API_KEY: Your_MailChimp_API_Key
   MAILCHIMP_LIST_ID: Your_List_ID
   DOMAIN_NAME: example.com
-  OWNER_EMAIL: fabio.petrucci@gmail.com
+  OWNER_EMAIL: test@gmail.com
 
   # Mode can be 'live' or 'sandbox'
   PAYPAL_MODE: sandbox
@@ -16,7 +16,7 @@ test: &default
   PAYPAL_CLIENT_ID: AZ6o1xD9n-Gs2rNvnOqAJDy7u5I-fKOBxkJeHfNYf1pSS4hDB-U8gcPj0FiR
   PAYPAL_CLIENT_SECRET: EMEdRhBLHU6PQ-l7mE3ml2MeSHsZEtYKi_sznyD-_T8BzeCSpCKBNXHgGPU7
 
-  PAYPAL_OWNER_EMAIL: fabio.petrucci-facilitator@gmail.com
+  PAYPAL_OWNER_EMAIL: ciccio.pasticcio-facilitator@gmail.com
   PAYPAL_ACK_URL: "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_notify-validate"
 
   PAPERCLIP_AWS_DOWNLOAD_PATH: "https://s3.amazonaws.com/papergest/paperclip/Paperclip-3.0-demo"
