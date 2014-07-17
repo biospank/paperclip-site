@@ -28,7 +28,7 @@ module WkHelper
 
     if opts[:body]
       logger.debug "rendering body..."
-      self.body = File.new("#{Rails.root}./tmp/tpls/body#{xyz}.html", 'w')
+      self.body = File.new("#{Rails.root}/tmp/tpls/body#{xyz}.html", 'w')
       render_body(opts)
       body.close
     end

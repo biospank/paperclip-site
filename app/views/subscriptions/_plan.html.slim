@@ -6,24 +6,42 @@
   label.col-sm-3.control-label Importo
   .col-sm-9
     p.form-control-static.text-primary = number_to_currency plan.price
+hr
 .form-group
   label.col-sm-3.control-label Sconto
-  .col-sm-9
+  .col-sm-3
     p.form-control-static.text-success
       - if plan.discount
         => number_to_currency(plan.discount_amount)
         | (#{number_to_percentage plan.discount})
       - else
         | -
+  label.col-sm-3.col-sm-offset-1.control-label Importo scontato
+  .col-sm-2
+    p.form-control-static.text-success
+      - if plan.discount
+        = number_to_currency(plan.discounted_price)
+      - else
+        | -
 .form-group
   label.col-sm-3.control-label Iva
-  .col-sm-9
+  .col-sm-3
     p.form-control-static.text-danger
-      => number_to_currency(plan.vat_amount)
-      | (#{number_to_percentage Vat.current.percentage})
+      - if plan.vat_amount.zero?
+        | -
+      - else
+        => number_to_currency(plan.vat_amount)
+        | (#{number_to_percentage Vat.current.percentage})
+  label.col-sm-3.col-sm-offset-1.control-label Importo ivato
+  .col-sm-2
+    p.form-control-static.text-danger
+      - if plan.vat_amount.zero?
+        | -
+      - else
+        = number_to_currency(plan.grand_total)
 .form-group
-  label.col-sm-3.control-label Totale
-  .col-sm-9
+  label.col-sm-3.col-sm-offset-7.control-label Totale
+  .col-sm-2
     p.form-control-static.text-primary
       strong
         = number_to_currency(plan.grand_total)

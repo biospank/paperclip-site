@@ -12,29 +12,30 @@ section#feature_slider.lol
     | Note: Maintain this order of params
 
     | For the backgrounds, you can combine from the bgs folder :D
-  article#showcasing.slide style=("background: url(image-path('img/backgrounds/landscape.png')) repeat-x top center;")
+  article#showcasing.slide style=("background: url(#{image_path('img/backgrounds/landscape.png')}) repeat-x top center;")
     = image_tag "img/slides/scene1/macbook.png", class: "asset left-30 sp600 t120 z1"
     .info
-      h2 Beautiful theme for showcasing your works.
-  article#ideas.slide style=("background: url(image-path('img/backgrounds/aqua.jpg')) repeat-x top center;")
+      h2 Paperclip &egrave; semplicemente intuitivo.
+  article#ideas.slide style=("background: url(#{image_path('img/backgrounds/indigo.jpg')}) repeat-x top center;")
     .info
-      h2 We love to turn ideas into beautiful things.
-    = image_tag "img/slides/scene2/left.png", class: "asset left-480 sp600 t260 z1"
-    = image_tag "img/slides/scene2/middle.png", class: "asset left-210 sp600 t213 z2"
-    = image_tag "img/slides/scene2/right.png", class: "asset left60 sp600 t260 z1"
-  article#tour.slide style=("background: url(image-path('img/backgrounds/color-splash.jpg')) repeat-x top center;")
-    = image_tag "img/slides/scene3/ipad.png", class: "asset left-472 sp650 t210 z3"
-    = image_tag "img/slides/scene3/iphone.png", class: "asset left-365 sp600 t270 z4"
-    = image_tag "img/slides/scene3/desktop.png", class: "asset left-350 sp450 t135 z2"
-    = image_tag "img/slides/scene3/macbook.png", class: "asset left-185 sp550 t220 z1"
+      h2 Tutti i moduli di cui hai bisogno con un click.
+    = image_tag "img/slides/scene2/left.png", class: "asset left-480 sp300 t250 z1"
+    = image_tag "img/slides/scene2/middle.png", class: "asset left-210 sp500 t183 z2"
+    = image_tag "img/slides/scene2/right.png", class: "asset left60 sp600 t250 z1"
+  article#tour.slide style=("background: url(#{image_path('img/backgrounds/indigo.jpg')}) repeat-x top center;")
+    / = image_tag "img/slides/scene3/ipad.png", class: "asset left-472 sp650 t210 z3"
+    / = image_tag "img/slides/scene3/iphone.png", class: "asset left-365 sp600 t270 z4"
+    = image_tag "img/slides/scene3/desktop.png", class: "asset left-472 sp650 t135 z2"
+    = image_tag "img/slides/scene3/macbook.png", class: "asset left-185 sp450 t220 z1"
     .info
-      h2 Fully Responsive theme
-      a href="features.html"  TOUR THE PRODUCT
-  article#responsive.slide style=("background: url(image-path('img/backgrounds/indigo.jpg')) repeat-x top center;")
-    = image_tag "img/slides/scene4/html5.png", class: "asset left-472 sp600 t120 z3"
-    = image_tag "img/slides/scene4/css3.png", class: "asset left-190 sp500 t120 z2"
+      h2 Ottimizzato per Desktop e Notebook.
+      = link_to 'SCARICA ORA!!', new_download_path(), data: {no_turbolink: true}
+  article#responsive.slide style=("background: url(#{image_path('img/backgrounds/indigo.jpg')}) repeat-x top center;")
+    = image_tag "img/slides/scene4/single.png", class: "asset left-472 sp600 t150 z3"
+    = image_tag "img/slides/scene4/net.png", class: "asset left-290 sp500 t150 z2"
+    = image_tag "img/slides/scene4/cloud.png", class: "asset left-108 sp400 t150 z1"
     .info
       h2
-        | Responsive
-        strong HTML5 & CSS3
-        | Theme
+        ' Versione
+        br
+        strong Single, Net e Cloud

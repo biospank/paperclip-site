@@ -19,3 +19,5 @@
 /config/application.yml
 # Ignore database configuration
 /config/database.yml
+*.psd
+*public/pdfs

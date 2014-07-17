@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709161646) do
+ActiveRecord::Schema.define(version: 20140717085212) do
 
   create_table "contacts", force: true do |t|
     t.string   "name"
@@ -57,6 +57,11 @@ ActiveRecord::Schema.define(version: 20140709161646) do
 
   add_index "invoice_lines", ["invoice_id"], name: "INVOICE_FK_IDX"
   add_index "invoice_lines", ["vat_id"], name: "VAT_FK_IDX"
+
+  create_table "invoice_notes", force: true do |t|
+    t.string  "description",                       null: false
+    t.integer "active",      limit: 1, default: 1
+  end
 
   create_table "invoice_serials", force: true do |t|
     t.integer "serial", null: false

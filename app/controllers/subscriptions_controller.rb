@@ -154,11 +154,11 @@ class SubscriptionsController < ApplicationController
 	end
 
 	def invoice_download
-		if pdf_file = @subscription.invoice.pdf_exist?
-			send_file pdf_file
-		else
+		# if pdf_file = @subscription.invoice.pdf_exist?
+		# 	send_file pdf_file
+		# else
 			send_file @subscription.invoice.generate_pdf(view_context)
-		end
+		# end
 	end
 
 	def reload

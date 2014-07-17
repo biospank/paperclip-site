@@ -26,7 +26,7 @@ class Invoice < ActiveRecord::Base
     generate(pdf_name,
       :header => false,
       :margin_top => 20,
-      :margin_bottom => 65,
+      :margin_bottom => 85, # 65
       :ctx => ctx
     )
   end

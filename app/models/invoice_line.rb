@@ -13,7 +13,7 @@ class InvoiceLine < ActiveRecord::Base
   end
 
   def vat_amount()
-    ((self.amount * self.vat.percentage) / 100)
+    self.vat.percentage.zero? ? 0 : ((self.amount * self.vat.percentage) / 100)
   end
 
 end

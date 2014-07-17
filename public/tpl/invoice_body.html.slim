@@ -56,4 +56,7 @@ html lang="en"
                   td.right style=("width: 20%;")
                     = number_to_currency(line.amount)
                   td.right style=("width: 20%;")
-                    = number_to_currency(line.vat_amount)
+                    - if line.vat_amount.zero?
+                      | -
+                    - else
+                      = number_to_currency(line.vat_amount)

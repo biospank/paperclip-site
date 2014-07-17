@@ -11,6 +11,10 @@ address {
   font-size: medium;
 }
 
+.extra_small {
+  font-size: x-small;
+}
+
 table#report {
   table-layout: fixed;
   word-wrap: break-word;

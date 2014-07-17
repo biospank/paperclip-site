@@ -20,7 +20,7 @@ class Subscription < ActiveRecord::Base
 
   def gen_key_for(customer)
     self.key = [[(customer.id + 1000).to_s], [(self.id + 1000).to_s], [self.expiry_date.to_time.to_i.to_s]].map do |chunk|
-      chunk.pack('m')
+      URI.escape(chunk.pack('m'), Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
     end.join('-')
   end
 

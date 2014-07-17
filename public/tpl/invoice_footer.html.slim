@@ -7,6 +7,10 @@ html
     / = wk_javascript_include_tag "jquery", "print"
   body
     .container
+      - InvoiceNote.active.each do |note|
+        .row.extra_small
+          .col-xs-12
+            = note.description.chomp
       hr/
       .well.well-sm
         .row
@@ -22,13 +26,13 @@ html
                 tr
                   td.left style=("width: 50%") = vat.description
                   td.right style=("width: 20%") = number_to_currency(invoice.amount)
-                  td.right style=("width: 20%") = number_to_currency(invoice.vat_amount)
+                  td.right style=("width: 20%") = invoice.vat_amount.zero? ? '-' : number_to_currency(invoice.vat_amount)
           .col-xs-5
             dl#totali.dl-horizontal
               dt Imponibile
               dd.right= number_to_currency(invoice.amount)
               dt Iva
-              dd.right= number_to_currency(invoice.vat_amount)
+              dd.right= invoice.vat_amount.zero? ? '-' : number_to_currency(invoice.vat_amount)
               dt Totale
               dd.right= number_to_currency(invoice.grand_total)
       .row
