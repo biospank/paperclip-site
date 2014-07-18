@@ -60,6 +60,11 @@ group :development do
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
+# install mailcatcher
+# gem install mailcatcher
+# configure development environment
+# config.action_mailer.delivery_method = :smtp
+# config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
 end
 
 group :development, :test do
