@@ -22,7 +22,7 @@ it:
               blank: "Inserisci la nuova assword"
   devise:
     confirmations:
-      confirmed: "Il tuo account è stato correttamente confermato. Ora sei collegato."
+      confirmed: "Il tuo account è stato correttamente confermato. Ora puoi collegarti."
       send_instructions: "Riceverai un messaggio email con le istruzioni per confermare il tuo account entro qualche minuto."
       send_paranoid_instructions: "Se la tua email esiste nel nostro database, entro qualche minuto riceverai un messaggio email con le istruzioni per confermare il tuo account."
     failure:

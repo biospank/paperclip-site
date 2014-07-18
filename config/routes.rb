@@ -15,7 +15,10 @@ Paperclip::Application.routes.draw do
   # get 'subscription/:id/cancel' => 'subscriptions#cancel', :as => 'subscription_cancel'
   # get 'subscription/:id/recap' => 'subscriptions#recap', :as => 'subscription_recap'
 
-  devise_for :users
+  devise_for :users, :controllers => {
+    :registrations => :registrations
+  }
+
   # if routing the root path, update for your controller
   root to: 'home#index'
 

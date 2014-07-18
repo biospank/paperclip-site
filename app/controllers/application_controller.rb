@@ -28,7 +28,6 @@ class ApplicationController < ActionController::Base
     new_user_session_url
   end
 
-
   private
 
   def user_not_authorized
