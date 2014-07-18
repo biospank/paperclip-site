@@ -190,7 +190,7 @@ class SubscriptionsController < ApplicationController
   end
 
 	def customer_params
-		params.require(:customer).permit(:name, :tax_code, :address, :cap, :city, :service_ids)
+		params.require(:customer).permit(:name, :tax_code, :address, :cap, :city, :terms_of_service, :service_ids)
 	end
 
 end

@@ -25,5 +25,15 @@
     .col-sm-9
       = f.text_field :city, class: 'form-control', placeholder: 'Paese, Provincia o Città'
   .form-group
+    = f.label :terms_of_service, 'Do il consenso', class: 'col-sm-3 control-label'
+    .col-sm-1
+      .checkbox
+        = f.check_box :terms_of_service
+  .form-group
+    .col-sm-3
+    .col-sm-9
+      => link_to 'leggi', page_path('privacy'), target: "_blank"
+      | l'informativa sulla privacy
+  .form-group
     .col-sm-12
       = f.submit 'Conferma i dati e continua...', :id => 'customer-data-btn', :class => "btn btn-default pull-right", data: {no_turbolink: true}

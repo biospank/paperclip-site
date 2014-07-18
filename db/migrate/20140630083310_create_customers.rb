@@ -7,6 +7,7 @@ class CreateCustomers < ActiveRecord::Migration
     t.string   :address, null: false
     t.string   :cap, null: false
     t.string   :city, null: false
+    t.boolean  :terms_of_service, null: false, default: false
     t.timestamps
    end
 

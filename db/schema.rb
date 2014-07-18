@@ -24,12 +24,13 @@ ActiveRecord::Schema.define(version: 20140717085212) do
   end
 
   create_table "customers", force: true do |t|
-    t.integer  "user_id",    null: false
-    t.string   "name",       null: false
-    t.string   "tax_code",   null: false
-    t.string   "address",    null: false
-    t.string   "cap",        null: false
-    t.string   "city",       null: false
+    t.integer  "user_id",                          null: false
+    t.string   "name",                             null: false
+    t.string   "tax_code",                         null: false
+    t.string   "address",                          null: false
+    t.string   "cap",                              null: false
+    t.string   "city",                             null: false
+    t.boolean  "terms_of_service", default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -50,9 +51,9 @@ ActiveRecord::Schema.define(version: 20140717085212) do
 
   create_table "invoice_lines", force: true do |t|
     t.integer "invoice_id",  null: false
+    t.integer "vat_id",      null: false
     t.string  "description", null: false
     t.decimal "amount",      null: false
-    t.integer "vat_id",      null: false
   end
 
   add_index "invoice_lines", ["invoice_id"], name: "INVOICE_FK_IDX"
@@ -88,7 +89,7 @@ ActiveRecord::Schema.define(version: 20140717085212) do
   end
 
   create_table "plans", force: true do |t|
-    t.string   "service_id", null: false
+    t.integer  "service_id", null: false
     t.string   "name"
     t.integer  "months"
     t.decimal  "price"

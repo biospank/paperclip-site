@@ -40,7 +40,7 @@ gem 'activerecord-tableless'
 # gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'figaro'
 gem 'devise'
-gem 'font-awesome-sass', '~> 4.0.3'
+gem 'font-awesome-sass', '~> 4.1.0'
 # gem 'gibbon'
 # gem 'google_drive'
 gem 'high_voltage'
@@ -48,6 +48,8 @@ gem 'high_voltage'
 
 gem 'paypal-sdk-rest'
 gem 'pundit'
+
+gem 'kramdown', '~> 1.4.0'
 
 group :development do
   gem 'better_errors'

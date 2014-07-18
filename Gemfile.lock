@@ -86,7 +86,7 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
-    font-awesome-sass (4.0.3.1)
+    font-awesome-sass (4.1.0)
       sass (~> 3.2)
     high_voltage (2.1.0)
     hike (1.2.3)
@@ -98,6 +98,7 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    kramdown (1.4.0)
     launchy (2.4.2)
       addressable (~> 2.3)
     mail (2.5.4)
@@ -247,10 +248,11 @@ DEPENDENCIES
   factory_girl_rails (~> 4.4.1)
   faker
   figaro
-  font-awesome-sass (~> 4.0.3)
+  font-awesome-sass (~> 4.1.0)
   high_voltage
   jbuilder (~> 1.2)
   jquery-rails
+  kramdown (~> 1.4.0)
   launchy
   paypal-sdk-rest
   pg

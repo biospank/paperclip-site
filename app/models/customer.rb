@@ -7,6 +7,7 @@ class Customer < ActiveRecord::Base
     allow_blank: false,
     message: "Tutti i dati sono obbligatori"
   }
+
   validates :tax_code, length: {
     is: 11,
     if: lambda { |customer|
@@ -16,6 +17,7 @@ class Customer < ActiveRecord::Base
     allow_blank: false,
     message: "La Patita Iva deve essere di 11 caratteri"
   }
+
   validates :tax_code, length: {
     is: 16,
     if: lambda { |customer|
@@ -25,9 +27,15 @@ class Customer < ActiveRecord::Base
     allow_blank: false,
     message: "Il codice fiscale deve essere di 16 caratteri"
   }
+
   validates :tax_code, uniqueness: {
     allow_blank: false,
     message: "Il Codice Fiscale o la partita iva inserita è già utilizzata"
+  }
+
+  validates :terms_of_service, acceptance: {
+    accept: true,
+    message: "E' necessario dare il consenso per il trattamento dati"
   }
 
   def error_message

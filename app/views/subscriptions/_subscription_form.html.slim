@@ -14,5 +14,8 @@
   #plan_detail
     = render 'plan', plan: @subscription.plan
   .form-group
-    .col-sm-5.col-sm-offset-7
+    .col-sm-4.col-sm-offset-2
+      p style="font-size: x-small;"
+        | Operazione effettuata ai sensi dell'articolo 27 commi 1 e 2 D.L. 6 luglio 2011 n. 98
+    .col-sm-5.col-sm-offset-1
       = f.submit 'Acquista con PayPal', :id => 'paypal-btn', :class => "btn btn-success btn-block"
