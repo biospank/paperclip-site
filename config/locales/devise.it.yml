@@ -20,6 +20,8 @@ it:
               confirmation: "Conferma la password"
             reset_password_token:
               blank: "Inserisci la nuova assword"
+            confirmation_token:
+              invalid: "token di conferma non valido"
   devise:
     confirmations:
       confirmed: "Il tuo account è stato correttamente confermato. Ora puoi collegarti."
