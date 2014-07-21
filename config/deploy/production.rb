@@ -17,6 +17,7 @@
 
 set :stage, :production
 set :application, 'papergest'
+set :deploy_to, '/var/www/webapps/papergest'
 
 server '5.101.102.90',
   user: 'deployer',
