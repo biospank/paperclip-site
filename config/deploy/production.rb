@@ -15,6 +15,9 @@
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
+set :stage, :production
+set :application, 'papergest'
+
 server '5.101.102.90',
   user: 'deployer',
   roles: %w{web app db},
@@ -24,8 +27,6 @@ server '5.101.102.90',
     auth_methods: %w(publickey password)
     # password: 'please use keys'
   }
-
-
 
 # Custom SSH Options
 # ==================
