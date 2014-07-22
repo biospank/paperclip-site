@@ -23,6 +23,10 @@
                   .register
                     span Non sei registrato?
                     = link_to 'Registrati', new_user_registration_path()
+                - if devise_mapping.confirmable?
+                  .register
+                    span Non hai ricevuto la mail di conferma?
+                    = link_to 'Reinvia', new_user_confirmation_path()
                 - if devise_mapping.recoverable?
                   .dont
                     = link_to "Password dimenticata?", new_user_password_path(resource_name), class: 'right'

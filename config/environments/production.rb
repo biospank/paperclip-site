@@ -81,7 +81,7 @@ Paperclip::Application.configure do
   config.action_mailer.default_url_options = { host: ENV["DOMAIN_NAME"] }
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
+    address: ENV["GMAIL_SMTP"],
     port: 587,
     domain: ENV["DOMAIN_NAME"],
     authentication: "plain",
