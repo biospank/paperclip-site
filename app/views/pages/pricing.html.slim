@@ -8,30 +8,30 @@
     .container
       .row.charts_wrapp
         /! Plan Box
-        .col-sm-3
-          .plan
-            .wrapper
-              h3 Single
-              .price
-                span.dollar €
-                span.qty 9
-                span.month
-                  |/mese
-              .features
-                p
-                  | aggiornamenti
-                p
-                  | supporto email
-              = link_to 'ACQUISTA ORA', new_subscription_path(service: Service::PAPERCLIP::SINGLE), class: 'order'
-        /! Plan Box
         .col-sm-3.ultra
           .plan
             .wrapper
               img.ribbon src==image_path("img/badge.png")
+                h3 Single
+                .price
+                  span.dollar €
+                  span.qty 9
+                  span.month
+                    |/mese
+                .features
+                  p
+                    | aggiornamenti
+                  p
+                    | supporto email
+                = link_to 'ACQUISTA ORA', new_subscription_path(service: Service::PAPERCLIP::SINGLE), class: 'order'
+        /! Plan Box
+        .col-sm-3.ultra
+          .plan
+            .wrapper
                 h3 Net
                 .price
                   span.dollar €
-                  span.qty 29
+                  span.qty 39
                   span.month
                     |/mese
                 .features
@@ -112,12 +112,15 @@
               | nessuno.
             blockquote
               | Per la versione
-              strong<>Net e Cloud
+              strong<>Net
+              | e
+              strong<>Cloud
               | dipende dalla rete aziendale in essere e dal numero di postazioni.
             blockquote
-              | Per maggiori informazioni
+              ' Per maggiori informazioni
               = link_to("contattaci", new_contact_path(), class: 'btn btn-primary btn-xs')
         .box
-          p.title Is there a discount for yearly service?
+          p.title C'&egrave; uno sconto per la sottoscrizione al servizio?
           p.answ
-            | There are many variations of passages of Lorem Ipsum available, but the randomised words which don’t look even slightly believable. If you are anything embarrassing hidden in the middle of text.
+            blockquote
+              | Si, viene applicato uno sconto del 5% per le sottoscrizioni trimestrali e del 10% per quelle annuali.

@@ -4,8 +4,6 @@ fatturazione
 menu
   - aggiungere la pagina servizi
 
-mailchimp
 exception notifier
-dnsimple
 
 staging
