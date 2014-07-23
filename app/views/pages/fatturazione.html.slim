@@ -16,22 +16,46 @@
           | La compilazione è semplice e veloce. Per rendere la compilazione ancora pi&ugrave; veloce usa gli incassi ricorrenti.
     .row.perk
       .col-sm-2.circle
-        i.fa.fa-laptop.fa-5x.white
+        i.fa.fa-file-text-o.fa-5x.white
       .col-sm-10.description_wrapper
-        h5 Fattura fiscale
+        h5 Fatture fiscali
         p
-          ' Compila la fattura
+          ' E' la fattura definitiva, puoi richiamarla tra le fatture provvisorie (Note spese, Avvisi fattura, Avvisi parcella) e confermarla come definitiva oppure
+          ' compilarla manualmente inserendo il cliente e il dettaglio delle righe che compongono la fattura. Hai a disposizione tutti gli elementi per comporre una fattura commerciale:
+          ' incassi ricorrenti, dati del destinatario, riferimento al documento di trasporto, ritenuta, iva ad esigibilità differita...
     .row.perk
       .col-sm-2.circle
         i.fa.fa-list-alt.fa-5x.white
       .col-sm-10.description_wrapper
         h5 Corrispettivi
         p
-          ' Se hai necessità di inserire i corrispettivi, questo modulo ti permette di compilare gli incassi giornalieri
-    .row.perk.last
+          ' Se hai necessità di inserire i corrispettivi, questo modulo ti permette di compilare gli incassi giornalieri per aliquota.
+          ' Se hai l'aliquota preimpostata, hai solo due cose da inserire: il giorno e l'incasso.
+    .row.perk
       .col-sm-2.circle
         i.fa.fa-clipboard.fa-5x.white
       .col-sm-10.description_wrapper
-        h5 Documento di trasporto
+        h5 Documenti di trasporto
         p
-          | There are many variations of passages of Lorem Ipsum available, injected generators on the  embarrassing hidden in the middle all the dictionary of  randomised words which don't look even slightly distracted by these distribution of letters, as opposed to using. Content here, content here making it look like readable English. Many desktop publishing packages and web page editors there many variation of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour or randomised words which don't look even slightly believable. If you are anything embarrassing hidden in the middle of text.
+          ' Viene emesso per giustificare il trasferimento di un materiale da cedente a cessionario.
+          ' Il documento è in formato libero e deve essere emesso in un minimo di due copie.
+          ' Il documento deve riportare il numero progressivo (automatico), la data, le generalità del cedente, del cessionario e dell'eventuale incaricato al trasporto, la quantità dei beni trasportati e la descrizione.
+    .row.perk
+      .col-sm-2.circle
+        i.fa.fa-check-square-o.fa-5x.white
+      .col-sm-10.description_wrapper
+        h5 Impostazioni
+        p
+          ' E' la sezione dove configuri le aliquote, le ritenute e gli incassi ricorrenti.
+          ' Le aliquote base sono già configurate, puoi crearne nuove, attivarle o disattivarle se non pi&ugrave; utilizzate.
+          ' l'opzione impostata come
+          em> predefinita
+          ' inserisce automaticamente il dato ad ogni operazione senza doverlo ricercare. Ad es. per l'aliquota: se viene utilizzata sempre la stessa ha senso impostarla come predefinita.
+    .row.perk.last
+      .col-sm-2.circle
+        i.fa.fa-search-plus.fa-5x.white
+      .col-sm-10.description_wrapper
+        h5 Report
+        p
+          ' E' il modulo di ricerca dei dati accumulati nel tempo (proforma, fatture, corrispettivi e documenti di trasporto). Permette ricerche avanzate per data, cliente e tipologia di dato.
+          ' In una frazione di secondo hai il risultato che cerchi e accedi al dettaglio con un doppio click.

@@ -1,5 +1,5 @@
 = nav_menu_item root_path
-  = link_to 'HOME', root_path
+  = link_to 'HOME', root_path, data: {no_turbolink: true}
 / li
 /   a href="about-us.html"  ABOUT US
 = nav_menu_item [page_path('fatturazione'), page_path('scadenzario'), page_path('prima_nota'), page_path('magazzino'), page_path('bilancio'), page_path('liquidazione_iva')], 'dropdown'
@@ -8,17 +8,23 @@
     b.caret
   ul.dropdown-menu
     = nav_menu_item page_path('fatturazione')
-      = link_to 'Fatturazione', page_path('fatturazione')
+      = link_to page_path('fatturazione') do
+        i.fa.fa-edit.fa-fw &nbsp;Fatturazione
     = nav_menu_item page_path('scadenzario')
-      = link_to 'Scadenzario', page_path('scadenzario')
+      = link_to page_path('scadenzario') do
+        i.fa.fa-calendar.fa-fw &nbsp;Scadenzario
     = nav_menu_item page_path('prima_nota')
-      = link_to 'Prima Nota', page_path('prima_nota')
+      = link_to page_path('prima_nota') do
+        i.fa.fa-columns.fa-fw &nbsp;Prima Nota
     = nav_menu_item page_path('magazzino')
-      = link_to 'Magazzino', page_path('magazzino')
+      = link_to page_path('magazzino') do
+        i.fa.fa-inbox.fa-fw &nbsp;Magazzino
     = nav_menu_item page_path('bilancio')
-      = link_to 'Bilancio', page_path('bilancio')
+      = link_to page_path('bilancio') do
+        i.fa.fa-signal.fa-fw &nbsp;Bilancio
     = nav_menu_item page_path('liquidazione_iva')
-      = link_to 'Liquidazione IVA', page_path('liquidazione_iva')
+      = link_to page_path('liquidazione_iva') do
+        i.fa.fa-eur.fa-fw &nbsp;Liquidazione IVA
 = nav_menu_item [page_path('pricing'), new_subscription_path()]
   = link_to 'ACQUISTA', (user_signed_in? && current_user.customer) ? new_subscription_path : page_path('pricing'), data: {no_turbolink: true}
 = nav_menu_item new_contact_path()
