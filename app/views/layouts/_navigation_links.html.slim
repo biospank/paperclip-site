@@ -22,9 +22,6 @@
     = nav_menu_item page_path('bilancio')
       = link_to page_path('bilancio') do
         i.fa.fa-signal.fa-fw &nbsp;Bilancio
-    = nav_menu_item page_path('liquidazione_iva')
-      = link_to page_path('liquidazione_iva') do
-        i.fa.fa-eur.fa-fw &nbsp;Liquidazione IVA
 = nav_menu_item [page_path('pricing'), new_subscription_path()]
   = link_to 'ACQUISTA', (user_signed_in? && current_user.customer) ? new_subscription_path : page_path('pricing'), data: {no_turbolink: true}
 = nav_menu_item new_contact_path()
