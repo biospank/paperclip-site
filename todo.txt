@@ -7,3 +7,8 @@ menu
 exception notifier
 
 staging
+
+
+facebook:
+
+Paperclip è un gestionale per le PMI. Semplice ed intuitivo, ti accompagna in tutte le fasi dell'organizzazione documentale dell'azienda.
