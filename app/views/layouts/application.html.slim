@@ -6,6 +6,8 @@ html
     meta content=(content_for?(:description) ? yield(:description) : "Paperclip") name="description"
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
+    / Go to www.addthis.com/dashboard to customize your tools
+    = javascript_include_tag "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53fc2c0235046a3b", "data-turbolinks-track" => false
     = csrf_meta_tags
   body style=("padding-top: 0px;")
     .navbar.navbar-inverse.navbar-static-top role="navigation"
