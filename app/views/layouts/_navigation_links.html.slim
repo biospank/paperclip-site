@@ -33,7 +33,7 @@
 - if user_signed_in?
   = nav_menu_item [subscriptions_path(), destroy_user_session_path()], 'dropdown'
     a.dropdown-toggle data-toggle="dropdown" href="#"
-      | il mio profilo
+      = current_user.email
       b.caret
     ul.dropdown-menu
       = nav_menu_item subscriptions_path()

@@ -2,6 +2,10 @@
 # /tmp/tpls
 
 test: &default
+  MANDRILL_SMTP_HOST: smtp.mandrillapp.com
+  MANDRILL_SMTP_PORT: 587
+  MANDRILL_SMTP_USERNAME: test
+  MANDRILL_SMTP_PASSWORD: test
   GMAIL_SMTP: smtp.gmail.com
   GMAIL_USERNAME: test@gmail.com
   GMAIL_PASSWORD: test123
