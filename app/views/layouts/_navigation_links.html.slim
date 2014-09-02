@@ -2,46 +2,48 @@
   = link_to 'HOME', root_path, data: {no_turbolink: true}
 / li
 /   a href="about-us.html"  ABOUT US
-= nav_menu_item [page_path('fatturazione'), page_path('scadenzario'), page_path('prima_nota'), page_path('magazzino'), page_path('bilancio'), page_path('liquidazione_iva')], 'dropdown'
+= nav_menu_item [main_app.page_path('fatturazione'), main_app.page_path('scadenzario'), main_app.page_path('prima_nota'), main_app.page_path('magazzino'), main_app.page_path('bilancio')], 'dropdown'
   a.dropdown-toggle data-toggle="dropdown" href="#"
     | MODULI
     b.caret
   ul.dropdown-menu
-    = nav_menu_item page_path('fatturazione')
-      = link_to page_path('fatturazione') do
+    = nav_menu_item main_app.page_path('fatturazione')
+      = link_to main_app.page_path('fatturazione') do
         i.fa.fa-edit.fa-fw &nbsp;Fatturazione
-    = nav_menu_item page_path('scadenzario')
-      = link_to page_path('scadenzario') do
+    = nav_menu_item main_app.page_path('scadenzario')
+      = link_to main_app.page_path('scadenzario') do
         i.fa.fa-calendar.fa-fw &nbsp;Scadenzario
-    = nav_menu_item page_path('prima_nota')
-      = link_to page_path('prima_nota') do
+    = nav_menu_item main_app.page_path('prima_nota')
+      = link_to main_app.page_path('prima_nota') do
         i.fa.fa-columns.fa-fw &nbsp;Prima Nota
-    = nav_menu_item page_path('magazzino')
-      = link_to page_path('magazzino') do
+    = nav_menu_item main_app.page_path('magazzino')
+      = link_to main_app.page_path('magazzino') do
         i.fa.fa-inbox.fa-fw &nbsp;Magazzino
-    = nav_menu_item page_path('bilancio')
-      = link_to page_path('bilancio') do
+    = nav_menu_item main_app.page_path('bilancio')
+      = link_to main_app.page_path('bilancio') do
         i.fa.fa-signal.fa-fw &nbsp;Bilancio
-= nav_menu_item [page_path('pricing'), new_subscription_path()]
-  = link_to 'ACQUISTA', (user_signed_in? && current_user.customer) ? new_subscription_path : page_path('pricing'), data: {no_turbolink: true}
-= nav_menu_item new_contact_path()
-  = link_to 'CONTATTI', new_contact_path()
-= nav_menu_item new_download_path()
-  = link_to 'DOWNLOAD', new_download_path(), data: {no_turbolink: true}
+= nav_menu_item [main_app.page_path('pricing'), main_app.new_subscription_path()]
+  = link_to 'ACQUISTA', (user_signed_in? && current_user.customer) ? main_app.new_subscription_path : main_app.page_path('pricing'), data: {no_turbolink: true}
+= nav_menu_item main_app.new_contact_path()
+  = link_to 'CONTATTI', main_app.new_contact_path()
+= nav_menu_item main_app.new_download_path()
+  = link_to 'DOWNLOAD', main_app.new_download_path(), data: {no_turbolink: true}
+= nav_menu_item forem.forums_path
+  = link_to 'FORUM', forem.forums_path
 / li
 /   a href="blog.html"  BLOG
 - if user_signed_in?
-  = nav_menu_item [subscriptions_path(), destroy_user_session_path()], 'dropdown'
+  = nav_menu_item [main_app.subscriptions_path(), main_app.destroy_user_session_path()], 'dropdown'
     a.dropdown-toggle data-toggle="dropdown" href="#"
       = current_user.email
       b.caret
     ul.dropdown-menu
-      = nav_menu_item subscriptions_path()
-        = link_to 'sottoscrizioni', subscriptions_path()
-      = nav_menu_item destroy_user_session_path()
-        = link_to 'esci', destroy_user_session_path(), data: {no_turbolink: true}, method: 'DELETE'
+      = nav_menu_item main_app.subscriptions_path()
+        = link_to 'sottoscrizioni', main_app.subscriptions_path()
+      = nav_menu_item main_app.destroy_user_session_path()
+        = link_to 'esci', main_app.destroy_user_session_path(), data: {no_turbolink: true}, method: 'DELETE'
 - else
-  = nav_menu_item new_user_registration_path()
-    = link_to 'registrati', new_user_registration_path(), data: {no_turbolink: true}, class: "btn btn-primary"
-  = nav_menu_item new_user_session_path()
-    = link_to 'accedi', new_user_session_path(), data: {no_turbolink: true}
+  = nav_menu_item main_app.new_user_registration_path()
+    = link_to 'registrati', main_app.new_user_registration_path(), data: {no_turbolink: true}, class: "btn btn-primary"
+  = nav_menu_item main_app.new_user_session_path()
+    = link_to 'accedi', main_app.new_user_session_path(), data: {no_turbolink: true}

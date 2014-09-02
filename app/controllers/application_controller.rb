@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+
+  helper_method :forem_user
+
   include Pundit
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -7,6 +10,10 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  def forem_user
+    current_user
+  end
+  
 	# def store_location
 	# 	# store last url - this is needed for post-login redirect to whatever the user last visited.
 	# 	if (request.fullpath != "/users/sign_in" &&
