@@ -81,13 +81,13 @@ Paperclip::Application.configure do
   config.action_mailer.default_url_options = { host: ENV["DOMAIN_NAME"] }
 
   config.action_mailer.smtp_settings = {
-    address: ENV["GMAIL_SMTP"],
-    port: 587,
+    address: ENV["MANDRILL_SMTP_HOST"],
+    port: ENV["MANDRILL_SMTP_PORT"],
     domain: ENV["DOMAIN_NAME"],
-    authentication: "plain",
+    authentication: "login",
     enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    user_name: ENV["MANDRILL_SMTP_USERNAME"],
+    password: ENV["MANDRILL_SMTP_PASSWORD"]
   }
 
 end
