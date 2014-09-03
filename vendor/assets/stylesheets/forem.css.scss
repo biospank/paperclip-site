@@ -1,3 +1,13 @@
-@import "bootstrap/bootstrap";
-@import "bootstrap-overrides";
+@import "bootstrap";
+@import "forem/base";
 @import "forem/bootstrap/*";
+
+// #forums_container, main > .category, .forum, #topic {
+//   width: 970px;
+//   margin: 100px auto;
+// }
+
+main {
+  width: 970px;
+  margin: 100px auto;
+}

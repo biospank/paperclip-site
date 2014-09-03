@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
 	has_many :downloads
 
   has_one  :customer
+
+  def to_s
+    self.email.split('@').first
+  end
 end
