@@ -1,7 +1,7 @@
 Forem.user_class = "User"
 Forem.email_from_address = "paperclip@papergest.com"
 # If you do not want to use gravatar for avatars then specify the method to use here:
-Forem.avatar_user_method = :custom_avatar_url # no avatar
+# Forem.avatar_user_method = :custom_avatar_url # no avatar
 Forem.per_page = 20
 
 Rails.application.config.to_prepare do

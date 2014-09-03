@@ -1,5 +1,5 @@
 = nav_menu_item root_path
-  = link_to 'HOME', root_path, data: {no_turbolink: true}
+  = link_to 'HOME', main_app.root_path, data: {no_turbolink: true}
 / li
 /   a href="about-us.html"  ABOUT US
 = nav_menu_item [main_app.page_path('fatturazione'), main_app.page_path('scadenzario'), main_app.page_path('prima_nota'), main_app.page_path('magazzino'), main_app.page_path('bilancio')], 'dropdown'
