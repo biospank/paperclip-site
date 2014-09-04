@@ -166,7 +166,7 @@ it:
       delete: Elimina
       created: L'argomento è stato creato.
       new: Crea un nuovo argomento
-      edit: Modifico argomento
+      edit: Modifica argomento
       not_created: Non è stato possibile creare l'argomento.
       deleted: Il tuo argomento è stato eliminato.
       cannot_delete: Non puoi eliminare argomenti che non ti appartengono.
