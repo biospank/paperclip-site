@@ -1,4 +1,4 @@
-#User.new(:email => "fabio.petrucci@gmail.com", :encrypted_password => "$2a$10$/kiVWg1o/vcw2spI2EsMPOzCHYF.kVmRJc1m4lIyT2eSFNQ925c8i", :admin => true).save(:validate => false)
+User.new(:email => "fabio.petrucci@gmail.com", :encrypted_password => "$2a$10$/kiVWg1o/vcw2spI2EsMPOzCHYF.kVmRJc1m4lIyT2eSFNQ925c8i", :admin => true, :forem_admin => true).save(:validate => false)
 Service.create!(:id => 1, :name => 'Paperclip Single')
 Service.create!(:id => 2, :name => 'Paperclip Net')
 Service.create!(:id => 3, :name => 'Paperclip Cloud')
