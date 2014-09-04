@@ -29,7 +29,7 @@
 = nav_menu_item main_app.new_download_path()
   = link_to 'DOWNLOAD', main_app.new_download_path(), data: {no_turbolink: true}
 = nav_menu_item forem.forums_path
-  = link_to 'FORUM', forem.forums_path
+  = link_to 'FORUM', forem.forums_path, data: {no_turbolink: true}
 / li
 /   a href="blog.html"  BLOG
 - if user_signed_in?
