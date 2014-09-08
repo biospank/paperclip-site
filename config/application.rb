@@ -27,6 +27,8 @@ module Paperclip
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
 
+    config.assets.paths << Emoji.images_path
+
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     #config.i18n.locale = :it

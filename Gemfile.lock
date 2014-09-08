@@ -307,6 +307,7 @@ DEPENDENCIES
   forem!
   forem-bootstrap!
   forem-redcarpet!
+  gemoji
   high_voltage
   jbuilder (~> 1.2)
   jquery-rails
