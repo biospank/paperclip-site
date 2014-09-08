@@ -359,6 +359,10 @@ header {
 					&.ico7, &.ico7h {
 						background-position: -226px 0px;
 					}
+					&.ico8, &.ico8h {
+						background-image: url(https://app.tinyletter.com/img/tinyletter-icon.svg);
+						title: "Iscriviti alla newsletter";
+					}
 				}
 
 				&:hover {
