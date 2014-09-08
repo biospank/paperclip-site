@@ -8,3 +8,11 @@ paypal
   - attivare le notifiche IPN per Papergest
     - sezione 'profilo' -> 'preferenze notifica immediata di pagamento'
       es: http://f7c7ba2.ngrok.com/subscriptions/ipn
+
+google app
+  - aggiungere i dati di billing per la gestione della mailbox
+  - creare le seguenti mailbox:
+    paperclip@papergest.com
+    assistenza@papergest.com
+    info@papergest.com
+    privacy@papergest.com
