@@ -1,9 +1,10 @@
 module SubscriptionsHelper
   STATUS_CLASS = {
-    :approved => 'danger',
+    :approved => 'active',
     :pending => 'warning',
     :active => 'success',
-    :expired => 'active'
+    :expired => 'danger',
+    :refunded => 'warning'
   }
 
 end

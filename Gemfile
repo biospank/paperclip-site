@@ -46,7 +46,8 @@ gem 'font-awesome-sass', '~> 4.1.0'
 gem 'high_voltage'
 #gem 'simple_form'
 
-gem 'paypal-sdk-rest'
+gem 'paypal-sdk-rest', '~> 0.7.2'
+
 gem 'pundit'
 
 gem 'kramdown', '~> 1.4.0'
@@ -62,6 +63,7 @@ gem 'kaminari', '0.15.1'
 group :development do
   gem 'better_errors'
   gem 'pry-rails'
+  gem 'byebug', '~> 3.5.1'
 #  gem 'binding_of_caller'
   gem 'quiet_assets'
   gem 'rails_layout'

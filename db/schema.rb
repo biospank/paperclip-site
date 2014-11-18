@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140902094871) do
+ActiveRecord::Schema.define(version: 20141117171334) do
 
   create_table "contacts", force: true do |t|
     t.string   "name"
@@ -212,6 +212,7 @@ ActiveRecord::Schema.define(version: 20140902094871) do
     t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "paypal_txn_id"
   end
 
   create_table "users", force: true do |t|

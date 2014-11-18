@@ -102,6 +102,7 @@ class SubscriptionsController < ApplicationController
 				if payment.execute( :payer_id => @subscription.paypal_customer_token )
 				# if payment.execute!(@subscription.paypal_customer_token)
 					@subscription.state = payment.state
+					@subscription.paypal_txn_id = payment.transactions.first.related_resources.first.sale.id rescue ''
 					@subscription.info = "Transazione approvata."
 					# to delete
 					# @subscription.create_invoice_for(Customer.find_by_user_id(current_user))
@@ -130,15 +131,40 @@ class SubscriptionsController < ApplicationController
 	def confirm
 		ipn = Paypal::IPN::Notification.new(params)
 
-		if ipn.send_ack_response(params)
-			if @subscription = Subscription.find_by_paypal_customer_token(ipn.payer_id)
-				if ipn.verify!(@subscription)
-					SubscriptionMailer.confirm_subscription(@subscription).deliver
+		# ipn refund
+		#<Paypal::IPN::Notification mc_gross="-27.00", protection_eligibility="Eligible",
+		#payer_id="UVVKT8RKRWMDU", address_street="Via Unit\u001A d'Italia, 5783296",
+		#payment_date="03:15:29 Nov 11, 2014 PST", payment_status="Refunded", charset="windows-1252",
+		#address_zip="80127", first_name="Ciccio", mc_fee="-0.92", address_country_code="IT",
+		#address_name="Ciccio Pasticcio", notify_version="3.8", reason_code="refund", custom="",
+		#address_country="Italy", address_city="Napoli", verify_sign="ACs4dittQtiAP1NmcZQjah0CaRwrACYlmGLNqLVBe8SURBEg9Dn4pWN5",
+		#payer_email="ciccio.pasticcio@gmail.com", parent_txn_id="98679320WU108510F", txn_id="5RW76457E35247156",
+		#payment_type="instant", last_name="Pasticcio", address_state="NAPOLI", receiver_email="fabio.petrucci-facilitator@gmail.com",
+		#payment_fee="", receiver_id="CH3S8Q77P8WHN", item_name="Paperclip Single: sottoscrizione piano trimestrale \x80 27.00",
+		#mc_currency="EUR", item_number="", residence_country="IT", test_ipn="1", handling_amount="0.00",
+		#transaction_subject="", payment_gross="", shipping="0.00", ipn_track_id="c39a2f9816975",
+		#controller="subscriptions", action="confirm">
+
+		# case ipn.payment_status
+		# when Paypal::PAYMENT::STATUS::REFUNDED
+		# 	@subscription.info = "Rimborso pagamento."
+		# 	@subscription.state = Paypal::PAYMENT::STATUS::REFUNDED
+		# 	@subscription.save!
+		# else
+			if ipn.send_ack_response(params) == Paypal::IPN::ACK_VERIFIED
+				if @subscription = Subscription.find_by_paypal_txn_id(ipn.txn_id)
+					if @subscription.state != Paypal::PAYMENT::STATUS::COMPLETED
+						if ipn.verify!(@subscription)
+							SubscriptionMailer.confirm_subscription(@subscription).deliver
+						end
+					else
+						render nothing: true, status: 200 and return
+					end
 				end
 			end
-		end
-
+		# end
 		render :nothing => true
+
 	end
 
 	def cancel
@@ -154,11 +180,11 @@ class SubscriptionsController < ApplicationController
 	end
 
 	def invoice_download
-		# if pdf_file = @subscription.invoice.pdf_exist?
-		# 	send_file pdf_file
-		# else
+		if pdf_file = @subscription.invoice.pdf_exist?
+			send_file pdf_file
+		else
 			send_file @subscription.invoice.generate_pdf(view_context)
-		# end
+		end
 	end
 
 	def reload
